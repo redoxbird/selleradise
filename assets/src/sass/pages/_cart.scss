@@ -1,0 +1,129 @@
+.selleradise.woocommerce-cart {
+  .pageTitle {
+    text-align: left;
+    justify-content: flex-start;
+    padding: 2.5rem 0 1rem 0;
+  }
+
+  &.woocommerce-cart-is-empty {
+    .pageTitle {
+      display: none;
+    }
+  }
+}
+
+.selleradise_page-cart {
+  .cart-collaterals {
+    width: 32.5%;
+    margin: 0 0 0 2.5%;
+    padding: 2rem;
+    height: auto;
+    align-self: flex-start;
+    border-radius: var(--border-radius-base);
+    border: 0.1em solid rgba(color(text-rgb), 0.1);
+    box-shadow: 0 3.6em 3.6em -2.7em color(shadow);
+
+    h2 {
+      font-size: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .cart_totals {
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--border-radius-half);
+
+      table {
+        background-color: transparent;
+        border-collapse: collapse;
+        border-radius: var(--border-radius-half);
+        overflow: hidden;
+        font-size: 1rem;
+
+        td,
+        th {
+          padding: 0.8rem 1rem;
+          border-bottom: none;
+        }
+      }
+    }
+
+    .shipping-calculator-button {
+      @extend .flex-start;
+    }
+
+    .wc-proceed-to-checkout {
+      @extend .flex-center;
+
+      .selleradise_button--primary {
+        width: 100%;
+      }
+    }
+
+    .woocommerce-shipping-destination {
+      font-size: 0.9em;
+    }
+
+    form.woocommerce-shipping-calculator {
+      input,
+      select,
+      .select2-selection {
+        background-color: color(background-mild);
+      }
+
+      button {
+        @extend .selleradise_button--secondary;
+      }
+    }
+
+    ul#shipping_method {
+      font-size: 1rem;
+      li {
+        @extend .flex-start;
+
+        label {
+          @extend .flex-start;
+          flex-grow: 1;
+          font-weight: normal;
+
+          a {
+            margin-left: auto;
+          }
+
+          .woocommerce-Price-amount {
+            margin-left: 0.5rem;
+            color: material-color("green", "500");
+          }
+        }
+      }
+    }
+  }
+
+  @include device(mobileAndTablet) {
+    align-items: flex-start;
+    width: 100%;
+    padding: 2.5rem 0;
+
+    .woocommerce-cart-form {
+      width: 100%;
+      flex-basis: 90vw;
+
+      .actions {
+        .coupon {
+        }
+      }
+    }
+
+    .cart-collaterals {
+      width: 100%;
+      margin: 2.5rem auto 0 auto;
+      padding: 2rem;
+
+      tr.woocommerce-shipping-totals td::before {
+        display: flex;
+        margin-bottom: 1rem;
+        float: none;
+      }
+    }
+  }
+}

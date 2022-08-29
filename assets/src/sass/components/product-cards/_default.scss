@@ -1,0 +1,10 @@
+.selleradise_productCard--default {
+  div.yith-wcwl-add-to-wishlist {
+    a.add_to_wishlist,
+    a:not(.delete_item):not(.add_to_wishlist),
+    a.delete_item {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+}

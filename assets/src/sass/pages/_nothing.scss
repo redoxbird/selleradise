@@ -1,0 +1,26 @@
+.selleradise_empty-state {
+  @extend .flex-center;
+  flex-direction: column;
+  padding: 5rem;
+
+  &__svg {
+    color: rgba(color(text-rgb), 0.5);
+
+    svg {
+      width: 5rem;
+      height: auto;
+    }
+  }
+
+  &__title {
+    @include font-size(p);
+    font-weight: font("primary_bolder", "font-weight");
+    color: rgba(color(text-rgb), 0.7);
+    margin: 1em 0 0 0;
+  }
+
+  .selleradise_button--primary {
+    @include font-size(small);
+    margin-top: 2rem;
+  }
+}

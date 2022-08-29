@@ -1,0 +1,32 @@
+{
+  "name": "khizar/selleradise",
+  "description": "",
+  "keywords": [
+    "WordPress",
+    "Theme",
+    "Starter"
+  ],
+  "homepage": "https://selleradise.com",
+  "license": "GNU General Public License v3.0 or later",
+  "version": "1.2.7",
+  "authors": [
+    {
+      "name": "Khizar Hasan",
+      "email": "khizarhasan927@gmail.com",
+      "homepage": "https://khizar.info",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "THEME_NAMESPACE\\": "./inc"
+    },
+    "files": [
+      "./inc/Helpers.php",
+      "./inc/class-tgm-plugin-activation.php"
+    ]
+  },
+  "require": {
+    "log1x/navi": "^2.0"
+  }
+}
