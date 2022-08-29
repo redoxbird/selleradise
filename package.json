@@ -10,13 +10,13 @@
     "dev:sync": "browser-sync start --proxy 'http://localhost:8010' --files 'assets/dist,template-parts,woocommerce' --no-inject-changes=true",
     "build": "run-p build:*",
     "build:es": "esbuild assets/src/scripts/main.js --outfile=assets/dist/js/main.js --bundle --minify --target=es2017",
+    "build:admin": "esbuild assets/src/scripts/admin.js --outfile=assets/dist/js/admin.js --bundle --minify --target=es2017",
     "build:sass": "sass assets/src/sass/style.scss assets/dist/css/style.css --style compressed"
   },
   "keywords": [],
   "author": "zarhasan",
   "license": "GNU General Public License v3.0 or later",
   "devDependencies": {
-    "@types/lodash-es": "^4.17.6",
     "browser-sync": "^2.27.10",
     "esbuild": "^0.15.5",
     "npm-run-all": "^4.1.5",

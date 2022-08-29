@@ -10,7 +10,6 @@ function getContrastingColor(value, candidate1, candidate2) {
   switch (types) {
     case "true,true,false":
     case "false,true,false":
-    case "false,true,true":
       return candidate1;
     case "true,false,true":
     case "false,false,true":
@@ -72,56 +71,6 @@ wp.customize(
 
       if (text_color) {
         color_accent_light_text.set(text_color);
-      }
-    });
-  }
-);
-
-wp.customize(
-  "dark_mode_color_main",
-  "dark_mode_color_main_text",
-  "dark_mode_color_text",
-  "dark_mode_color_background",
-  function (
-    dark_mode_color_main,
-    dark_mode_color_main_text,
-    dark_mode_color_text,
-    dark_mode_color_background
-  ) {
-    dark_mode_color_main.bind(function (value) {
-      const text_color = getContrastingColor(
-        value,
-        dark_mode_color_text.get(),
-        dark_mode_color_background.get()
-      );
-
-      if (text_color) {
-        dark_mode_color_main_text.set(text_color);
-      }
-    });
-  }
-);
-
-wp.customize(
-  "dark_mode_color_accent_light",
-  "dark_mode_color_accent_light_text",
-  "dark_mode_color_text",
-  "dark_mode_color_background",
-  function (
-    dark_mode_color_accent_light,
-    dark_mode_color_accent_light_text,
-    dark_mode_color_text,
-    dark_mode_color_background
-  ) {
-    dark_mode_color_accent_light.bind(function (value) {
-      const text_color = getContrastingColor(
-        value,
-        dark_mode_color_text.get(),
-        dark_mode_color_background.get()
-      );
-
-      if (text_color) {
-        dark_mode_color_accent_light_text.set(text_color);
       }
     });
   }

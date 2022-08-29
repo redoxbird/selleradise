@@ -40,7 +40,7 @@ array_unshift($gallery_image_ids, $post_thumbnail_id);
 					<img
 					  class="w-full h-full object-cover"
 					  src="<?php echo esc_url(wc_placeholder_img_src()); ?>"
-						x-intersect.once="$setSrc('<?php echo esc_url($image[0]); ?>')"
+						x-lazy:src="<?php echo esc_url($image[0]); ?>"
 					  alt="<?php echo esc_attr($image_alt); ?>">
 					<a href="<?php echo esc_url($image_full[0]); ?>"></a>
 				</li>
@@ -64,10 +64,13 @@ array_unshift($gallery_image_ids, $post_thumbnail_id);
 				}
 
 			?>
-				<button class="w-40 h-40 rounded-lg overflow-hidden" x-bind:class="{'border-gray-900 border-2 transition-all': isInView(<?php echo esc_attr($index); ?>) }" x-on:click.prevent="onThumbClick(<?php echo esc_attr($index); ?>)">
+				<button
+				  class="w-40 h-40 rounded-lg overflow-hidden"
+				  x-bind:class="{'transition-all opacity-50': isInView(<?php echo esc_attr($index); ?>) }"
+				  x-on:click.prevent="onThumbClick(<?php echo esc_attr($index); ?>)">
 					<img
 					  class="w-full h-full object-cover"
-						x-intersect.once="$setSrc('<?php echo esc_attr($thumbnail[0]); ?>')"
+						x-lazy:src="<?php echo esc_url($thumbnail[0]); ?>"
 						src="<?php echo esc_url(wc_placeholder_img_src()); ?>"
 					  alt="">
 				</button>

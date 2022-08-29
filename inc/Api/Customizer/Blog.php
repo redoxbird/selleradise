@@ -36,6 +36,8 @@ class Blog
             'priority' => 40,
         ));
 
+        // <REMOVE_IN_LITE>
+
         Kirki::add_field('[TEXT_DOMAIN]', [
             'type' => 'radio',
             'settings' => 'blog_card_type',
@@ -52,6 +54,8 @@ class Blog
             ],
             'transport' => 'refresh',
         ]);
+
+        // </REMOVE_IN_LITE>
 
     }
 }

@@ -43,11 +43,6 @@ class Colors
             $settings['color_text'] = $palettes[$name]['light']['color_dark'];
             $settings['color_accent_light'] = $palettes[$name]['light']['color_accent_light'];
 
-            $settings['dark_mode_color_background'] = $palettes[$name]['dark']['color_dark'];
-            $settings['dark_mode_color_main'] = $palettes[$name]['dark']['color_main'];
-            $settings['dark_mode_color_text'] = $palettes[$name]['dark']['color_light'];
-            $settings['dark_mode_color_accent_light'] = $palettes[$name]['dark']['color_accent_light'];
-
             $this->palette[$name] = $palettes[$name]['light'];
 
             $presets[$name] = [
@@ -61,18 +56,6 @@ class Colors
             'priority' => 22,
         ));
 
-        Kirki::add_field('[TEXT_DOMAIN]', [
-            'type' => 'radio-buttonset',
-            'settings' => 'theme_type',
-            'label' => esc_html__('Mode', '[TEXT_DOMAIN]'),
-            'section' => 'selleradise_colors',
-            'default' => 'light',
-            'choices' => [
-                'light' => esc_html__('Light', '[TEXT_DOMAIN]'),
-                'dark' => esc_html__('Dark', '[TEXT_DOMAIN]'),
-                'both' => esc_html__('Both', '[TEXT_DOMAIN]'),
-            ],
-        ]);
 
         Kirki::add_field('[TEXT_DOMAIN]', [
             'type' => 'custom',
@@ -94,6 +77,8 @@ class Colors
         Kirki::add_field('[TEXT_DOMAIN]', [
             'type' => 'color',
             'settings' => 'color_main_text',
+            'label' => esc_html__('Main Text', '[TEXT_DOMAIN]'),
+            'description' => esc_html__('Contrasting color for main color.', '[TEXT_DOMAIN]'),
             'section' => 'selleradise_colors',
             'default' => selleradise_get_default_color('main_text'),
             'transport' => 'refresh',
@@ -132,75 +117,10 @@ class Colors
         Kirki::add_field('[TEXT_DOMAIN]', [
             'type' => 'color',
             'settings' => 'color_accent_light_text',
+            'label' => __('Accent Text', '[TEXT_DOMAIN]'),
+            'description' => esc_html__('Contrasting color for accent color.', '[TEXT_DOMAIN]'),
             'section' => 'selleradise_colors',
             'default' => selleradise_get_default_color('accent_light_text'),
-            'transport' => 'refresh',
-        ]);
-
-        /**
-         * Dark Mode Colors
-         */
-
-        Kirki::add_field('[TEXT_DOMAIN]', [
-            'type' => 'custom',
-            'settings' => 'title_dark_mode_color',
-            'section' => 'selleradise_colors',
-            'default' => selleradise_kirki_heading('Colors (Dark Mode)'),
-        ]);
-
-        Kirki::add_field('[TEXT_DOMAIN]', [
-            'type' => 'color',
-            'settings' => 'dark_mode_color_main',
-            'label' => __('Main', '[TEXT_DOMAIN]'),
-            'description' => esc_html__('The main color of the website.', '[TEXT_DOMAIN]'),
-            'section' => 'selleradise_colors',
-            'default' => selleradise_get_default_color("dark-theme_main"),
-            'transport' => 'refresh',
-        ]);
-
-        Kirki::add_field('[TEXT_DOMAIN]', [
-            'type' => 'color',
-            'settings' => 'dark_mode_color_main_text',
-            'section' => 'selleradise_colors',
-            'default' => selleradise_get_default_color('dark-theme_main_text'),
-            'transport' => 'refresh',
-        ]);
-
-        Kirki::add_field('[TEXT_DOMAIN]', [
-            'type' => 'color',
-            'settings' => 'dark_mode_color_background',
-            'label' => __('Background', '[TEXT_DOMAIN]'),
-            'description' => esc_html__('Color used either for background.', '[TEXT_DOMAIN]'),
-            'section' => 'selleradise_colors',
-            'default' => selleradise_get_default_color("dark-theme_background"),
-            'transport' => 'refresh',
-        ]);
-
-        Kirki::add_field('[TEXT_DOMAIN]', [
-            'type' => 'color',
-            'settings' => 'dark_mode_color_text',
-            'label' => __('Text', '[TEXT_DOMAIN]'),
-            'description' => esc_html__('text color, make sure that it contrasts well with the background color.', '[TEXT_DOMAIN]'),
-            'section' => 'selleradise_colors',
-            'default' => selleradise_get_default_color("dark-theme_text"),
-            'transport' => 'refresh',
-        ]);
-
-        Kirki::add_field('[TEXT_DOMAIN]', [
-            'type' => 'color',
-            'settings' => 'dark_mode_color_accent_light',
-            'label' => __('Accent', '[TEXT_DOMAIN]'),
-            'description' => esc_html__('an accent color, rarely used.', '[TEXT_DOMAIN]'),
-            'section' => 'selleradise_colors',
-            'default' => selleradise_get_default_color("dark-theme_accent_light"),
-            'transport' => 'refresh',
-        ]);
-
-        Kirki::add_field('[TEXT_DOMAIN]', [
-            'type' => 'color',
-            'settings' => 'dark_mode_color_accent_light_text',
-            'section' => 'selleradise_colors',
-            'default' => selleradise_get_default_color('dark-theme_accent_light_text'),
             'transport' => 'refresh',
         ]);
 
@@ -247,10 +167,6 @@ class Colors
                 set_theme_mod('color_' . $color . '_rgb', selleradise_hex_to_rgb($color_mod));
             }
 
-            if ($dark_mode_color_mod) {
-                $rgb = Kirki_Color::get_rgb($dark_mode_color_mod);
-                set_theme_mod('dark_mode_color_' . $color . '_rgb', selleradise_hex_to_rgb($dark_mode_color_mod));
-            }
         }
 
     }

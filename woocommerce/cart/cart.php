@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_cart' );
 
 		<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-		<ul class="mt-2 grid grid-cols-1 md:grid-cols-3 gap-4 cart woocommerce-cart-form__contents">
+		<ul class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4 cart woocommerce-cart-form__contents">
 			<?php do_action('woocommerce_before_cart_contents'); ?>
 
 			<?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
@@ -35,49 +35,58 @@ do_action( 'woocommerce_before_cart' );
 				?>
 
 				
-				<li x-data="cartItem" x-bind:style="{'--width': width + 'px'}" class="border-1 border-gray-200 rounded-xl overflow-hidden cart_item">
-					<div class="w-full relative">
-						<?php
-							$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+				<li x-data="cartItem" x-bind:style="{'--width': width + 'px'}" class="border-1 border-text-200 rounded-xl overflow-hidden cart_item">
 
-							if ( ! $product_permalink ) {
-								echo wp_kses_post( $thumbnail ); // PHPCS: XSS ok.
-							} else {
-								printf( '<a href="%s" class="selleradise-background-image overflow-hidden w-full h-ratio">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
-							}
-						?>
-
-						<div class="text-sm font-semibold absolute right-2 top-2 bg-accent-900 text-accent-text py-2 px-4 rounded-full">
-							<?php
-								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
-							?>
-						</div>
+					<div class="w-full bg-text-50 px-4 py-2 text-sm">
+						<ul class="flex justify-start items-center gap-4">
+							<li class="flex flex-col">
+								<span class="mb-1 text-xs"><?php esc_html_e('Subtotal', '[TEXT_DOMAIN]') ?></span>
+								<span class="font-semibold"><?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok. ?></span>
+							</li>
+							<li class="flex flex-col">
+								<span class="mb-1 text-xs"><?php esc_html_e('Stock', '[TEXT_DOMAIN]') ?></span>
+								<span class="font-semibold"><?php echo $_product->get_stock_status(); ?></span>
+							</li>
+						</ul>
 					</div>
 
-					<div class="p-5 self-stretch flex flex-col justify-start items-start">
-						<h2 class="text-md m-0">
+					<div class="p-4 bg-background-50 border-t-[0.05rem] border-text-200">
+						<div class="flex justify-start items-start">
 							<?php
+								$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+
 								if ( ! $product_permalink ) {
-									echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
+									echo wp_kses_post( $thumbnail ); // PHPCS: XSS ok.
 								} else {
-									echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s" class="text-text-900 hover:underline hover:text-main-900">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
-								}
-
-								do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
-
-								// Meta data.
-								echo wc_get_formatted_cart_item_data( $cart_item ); // PHPCS: XSS ok.
-
-								// Backorder notification.
-								if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
-									echo wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__( 'Available on backorder', '[TEXT_DOMAIN]' ) . '</p>', $product_id ) );
+									printf( '<a href="%s" class="selleradise-background-image rounded-2xl overflow-hidden w-20 h-20 flex-shrink-0">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
 								}
 							?>
-						</h2>
 
-						<?php get_template_part('woocommerce/cart/variation-info', null, ['_product' => $_product]);?>
+							<div class="ml-4 flex-grow">
+								<h2 class="text-md m-0">
+									<?php
+										if ( ! $product_permalink ) {
+											echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
+										} else {
+											echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s" class="text-text-900 hover:underline hover:text-main-900">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
+										}
 
-					
+										do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
+
+										// Meta data.
+										echo wc_get_formatted_cart_item_data( $cart_item ); // PHPCS: XSS ok.
+
+										// Backorder notification.
+										if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
+											echo wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__( 'Available on backorder', '[TEXT_DOMAIN]' ) . '</p>', $product_id ) );
+										}
+									?>
+								</h2>
+
+								<?php get_template_part('woocommerce/cart/variation-info', null, ['_product' => $_product]);?>
+							</div>
+						</div>
+
 						<div class="flex justify-start items-center mt-3 w-full flex-wrap">
 
 							<div class="product-quantity">
@@ -102,7 +111,7 @@ do_action( 'woocommerce_before_cart' );
 								?>
 							</div>
 
-							<span class="flex justify-center items-center text-text-900 p-3 opacity-50 children:w-3 children:h-3">
+							<span class="w-4 mx-3 h-auto flex justify-center items-center text-text-900 opacity-50">
 								<?php echo selleradise_svg('tabler-icons/x'); ?>
 							</span>
 
@@ -112,7 +121,7 @@ do_action( 'woocommerce_before_cart' );
 								?>
 							</span>
 
-							<div class="mt-3 w-full">
+							<div class="pl-3 ml-auto">
 								<?php
 									echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 										'woocommerce_cart_item_remove_link',
@@ -129,8 +138,9 @@ do_action( 'woocommerce_before_cart' );
 								?>
 							</div>
 						</div>
-						
+
 					</div>
+						
 				</li>
 
 				<?php do_action('woocommerce_cart_contents');?>

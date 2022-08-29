@@ -34,6 +34,8 @@ if (!$product->get_date_on_sale_to() || !$product->get_date_on_sale_from() || $p
     })"
     class="flex justify-start items-center text-sm flex-wrap w-full my-4 max-w-xs border-1 border-dashed border-red-600 text-red-600 rounded-xl py-2 px-4">
 
+    <span class="flex-grow flex flex-col text-center"></span>
+
     <div class="flex justify-start items-center gap-2 w-full">
         <template x-for="label in ['days', 'hours', 'minutes', 'seconds']">
             <div class="flex-grow flex flex-col text-center">

@@ -19,7 +19,7 @@ if ($_product->get_type() !== 'variation') {
 
 ?>
 
-<ul class="flex justify-start items-start gap-2 mt-3 text-sm">
+<ul class="flex justify-start items-start gap-2 mt-3 text-xs">
     <?php foreach($_product->get_variation_attributes(false) as $variation_taxonomy => $value): ?>
 
         <li class="flex justify-start items-center gap-0.5">

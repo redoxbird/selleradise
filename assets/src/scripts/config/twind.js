@@ -56,6 +56,7 @@ export default {
         8: "repeat(8, minmax(0, 1fr))",
       },
       spacing: {
+        112: "28rem",
         120: "30rem",
         128: "32rem",
         144: "36rem",

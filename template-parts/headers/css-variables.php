@@ -36,20 +36,15 @@ $color_variables = [
                 $color_value = get_theme_mod('color_'.$name, selleradise_get_default_color($name));
                 $color_value_rgb = get_theme_mod('color_'.$name.'_rgb', selleradise_get_default_color($name.'_rgb'));
 
-                echo esc_html(sprintf('--light-theme_%s:%s;', $css_property, $color_value));
-                echo esc_html(sprintf('--light-theme_%s-rgb:%s;', $css_property, $color_value_rgb));
+                echo esc_html(sprintf('--selleradise-%s:%s;', $css_property, $color_value));
+                echo esc_html(sprintf('--selleradise-%s-rgb:%s;', $css_property, $color_value_rgb));
             };
        
-            foreach($color_variables as $name) {
-                $css_property = sprintf('color-%s', str_replace('_', '-', $name));
-                $color_value = get_theme_mod('dark_mode_color_'.$name, selleradise_get_default_color('dark-theme_'.$name));
-                $color_value_rgb = get_theme_mod('dark_mode_color_'.$name.'_rgb', selleradise_get_default_color('dark-theme_'.$name).'_rgb');
-                
-                echo esc_html(sprintf('--dark-theme_%s:%s;', $css_property, $color_value));
-                echo esc_html(sprintf('--dark-theme_%s-rgb:%s;', $css_property, $color_value_rgb));
-            };
+     
         ?>
 
+        --selleradise-color-light: var(--selleradise-color-background);
+        --selleradise-color-dark: var(--selleradise-color-text);
         --selleradise-color-shadow: rgba(0,0,0,0.1);
 
         <?php 
@@ -77,17 +72,5 @@ $color_variables = [
         --swiper-theme-color: var(--selleradise-color-main);
     }
 
-    :root[data-selleradise-theme-type="light"] {
-        <?php 
-            foreach($color_variables as $css_property => $theme_mod_name) {
-                echo esc_html(sprintf('--selleradise-color-%s: var(--light-theme_color-%s);', str_replace('_', '-', $theme_mod_name), str_replace('_', '-', $theme_mod_name)));
-                echo esc_html(sprintf('--selleradise-color-%s-rgb: var(--light-theme_color-%s-rgb);', str_replace('_', '-', $theme_mod_name), str_replace('_', '-', $theme_mod_name)));
-            };
-        ?>
-
-        --selleradise-color-light: var(--light-theme_color-background);
-        --selleradise-color-dark: var(--light-theme_color-text);
-    }
-    
 </style>
 
