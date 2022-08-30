@@ -8,26 +8,46 @@ if ($args) {
   extract($args);
 }
 
+$header_type = get_theme_mod('header_type', 'default');
+$type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
+
 ?>
 
 <form
   action="<?php echo esc_url(apply_filters('woocommerce_return_to_shop_redirect', wc_get_page_permalink('shop'))); ?>"
   method="get"
-  x-data="searchBar({type: '<?php echo esc_attr(isset($type) && $type ? $type : 'native') ?>'})"
+  x-data="searchBar({
+    type: '<?php echo esc_attr(isset($type) && $type ? $type : 'native') ?>',
+    headerType: '<?php echo esc_attr($header_type); ?>'
+  })"
   x-on:start-search.window="start()"
-  x-on:click.outside="!['idle', 'initiated'].includes(state) && stop()"
+  x-on:click.outside="stop()"
   x-bind:data-state="state"
   role="search"
   x-ref="searchForm"
-  class="selleradiseHeader__searchForm">
+  class="selleradiseHeader__searchForm flex-grow flex justify-center items-center"
+  x-bind:class="[isModal() ? 'selleradiseHeader__searchForm--overlay' : 'relative']"
+  x-trap.noreturn="isModal() && show()"
+  x-show="isModal() ? show() : true"
+  x-transition:enter="transition ease-out-expo duration-500"
+  x-transition:enter-start="opacity-0 translate-y-16"
+  x-transition:enter-end="opacity-100 translate-y-0"
+  x-transition:leave="transition ease-out-expo duration-300"
+  x-transition:leave-start="opacity-100 translate-y-0"
+  x-transition:leave-end="opacity-0 translate-y-16"
+  x-on:keydown.esc.window="stop()"
+  >
+
+  <template x-teleport="header">
+    <div x-show="isModal() && show()" x-transport="body" class="overlay z-1000" x-on:click="close()" x-transition.opacity></div>
+  </template>
+
   <label class="flex">
     <span class="sr-only"><?php esc_html_e("Search for products here...", '[TEXT_DOMAIN]'); ?></span>
     <input
       type="text"
       x-bind:value="keyword"
-      x-on:input="handleInputChange($event)"
-      x-on:focus="startSearch()"
-      x-on:keydown.tab.shift="stopSearch()"
+      x-on:input="start(); handleInputChange($event)"
       x-on:keydown.enter="handleEnterPress($event)"
       class="searchField"
       ref="searchField"

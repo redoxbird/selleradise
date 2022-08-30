@@ -22,16 +22,12 @@ if (isset($args)) {
 
       <?php if (isset($item['children']) && !empty($item['children'])) : ?>
         <button class="w-8 h-8 flex justify-center items-center py-2 bg-gray-50 border-1 border-gray-300 border-0 rounded-full" x-on:click.prevent="activeChild = !activeChild" aria-label="<?php echo esc_html(__("Open", '[TEXT_DOMAIN]') . ' ' . $item['name']); ?>">
-          <template x-if="!activeChild">
-            <span class="w-5 h-auto flex justify-center items-center">
-              <?php echo selleradise_svg("tabler-icons/chevron-down"); ?>
-            </span>
-          </template>
-          <template x-if="activeChild">
-            <span class="w-5 h-auto flex justify-center items-center">
-              <?php echo selleradise_svg("tabler-icons/chevron-up"); ?>
-            </span>
-          </template>
+          <span x-show="!activeChild" class="w-5 h-auto flex justify-center items-center">
+            <?php echo selleradise_svg("tabler-icons/chevron-down"); ?>
+          </span>
+          <span x-show="activeChild" class="w-5 h-auto flex justify-center items-center">
+            <?php echo selleradise_svg("tabler-icons/chevron-up"); ?>
+          </span>
         </button>
 
         <?php

@@ -961,22 +961,19 @@ if (!function_exists('selleradise_nav_classes')) {
                 return "bg-white border-1 rounded-lg p-2 border-gray-200 absolute left-0 min-w-full top-full";
             } else if ($level > 2) {
                 return "bg-white border-1 rounded-lg p-2 border-gray-200 absolute left-full ml-2 min-w-44 min-h-full top-0";
-            }
-            ;
+            };
         } else if ($tag === "li") {
             if ($level === 1) {
                 return "relative whitespace-nowrap list-none flex justify-between flex-wrap items-center w-full";
             } else if ($level > 1) {
                 return "relative flex-1 whitespace-nowrap list-none flex justify-between flex-wrap items-center w-full my-2";
-            }
-            ;
+            };
         } else if ($tag === "a") {
             if ($level === 1) {
-                return "flex justify-center items-center nowrap px-4 py-1 font-semibold text-md focus-within:bg-gray-100 rounded-full";
+                return "flex justify-center items-center nowrap px-4 py-1 font-semibold text-sm focus-within:bg-gray-100 rounded-full";
             } else if ($level > 1) {
-                return "flex w-full justify-start items-center nowrap px-4 py-1 font-semibold text-md focus-within:bg-gray-100 rounded-full";
-            }
-            ;
+                return "flex w-full justify-start items-center nowrap px-4 py-1 font-semibold text-sm focus-within:bg-gray-100 rounded-full";
+            };
         }
 
         return;

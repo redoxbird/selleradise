@@ -1,4 +1,4 @@
-<?php
+<?php // [REMOVE_FILE_IN_LITE]
 
 if (!defined('ABSPATH')) {
   exit; // Exit if accessed directly.
@@ -12,13 +12,12 @@ if (!defined('ABSPATH')) {
   class="selleradiseHeader fixed z-1000 not-top:bg-background-50 not-top:shadow-b-sm left-0 right-0 w-full flex justify-between items-center px-header h-header"
   x-bind:class="{'headroom--unpinned': !$store.scroll.pin, 'headroom--pinned': $store.scroll.pin, 'headroom--not-top': !$store.scroll.start}">
   <?php get_template_part('template-parts/headers/partials/logo'); ?>
-  <?php get_template_part('template-parts/headers/partials/menu'); ?>
   <?php get_template_part('template-parts/headers/partials/search');?>
   
-  <div class="flex justify-end items-center pl-4 ml-auto">
+  <div class="flex justify-end items-center lg:mx-4 ml-auto">
     <span class="lg:hidden"><?php get_template_part('template-parts/headers/partials/trigger', "search"); ?></span>
     <?php get_template_part('template-parts/headers/partials/trigger', "account"); ?>
     <?php get_template_part('template-parts/headers/partials/trigger', 'cart'); ?>
-    <span class="lg:hidden"><?php get_template_part('template-parts/headers/partials/trigger', 'menu'); ?></span>
+    <?php get_template_part('template-parts/headers/partials/trigger', 'menu'); ?>
   </div>
 </header>

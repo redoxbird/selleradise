@@ -8,15 +8,15 @@ if (!defined('ABSPATH')) {
 $fonts = selleradise_get_fonts();
 
 $header_heights = [
-    'default' => '6rem',
-    'simple'  => '6rem',
-    'common'  => '6rem',
-    'minimal' => '6rem',
-    'robust' => '10.5rem',
-    'robust-alt' => '10.5rem',
-    'robust-centered' => '10.5rem',
-    'centered' => '6rem',
-    'custom' => get_theme_mod('header_custom_height', '6rem'),
+    'default' => '5rem',
+    'simple'  => '5rem',
+    'common'  => '5rem',
+    'minimal' => '5rem',
+    'robust' => '8rem',
+    'robust-alt' => '8rem',
+    'robust-centered' => '8rem',
+    'centered' => '5rem',
+    'custom' => get_theme_mod('header_custom_height', '5rem'),
 ];
 
 $header_height = $header_heights[get_theme_mod('header_type', 'default')] ?? '6rem';

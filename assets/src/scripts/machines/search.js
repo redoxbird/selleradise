@@ -1,6 +1,6 @@
-import { interpret, Machine } from "xstate";
+import { createMachine, interpret } from "xstate";
 
-export const searchMachine = Machine(
+export const searchMachine = createMachine(
   {
     id: "searchForm",
     initial: "idle",

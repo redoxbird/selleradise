@@ -29,20 +29,9 @@ $sidebar_width: 22.5rem;
   $prefix: &;
 
   &-list {
-    // @extend .inline-list;
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, var(--width));
-    // grid-gap: 2rem;
-    // gap: 2rem;
-    // justify-content: start;
-
     > .product-category {
       display: none;
     }
-
-    // [data-selleradise-sidebar-type="offscreen"] & {
-    //   justify-content: space-between;
-    // }
   }
 
   @include device(desktop) {
@@ -82,7 +71,6 @@ $sidebar_width: 22.5rem;
   grid-template-columns: repeat(auto-fit, var(--width));
   grid-gap: 2rem;
   gap: 2rem;
-  justify-content: start;
   width: 100%;
   margin: 2rem 0 1rem;
   --ratio: 1;
@@ -97,6 +85,9 @@ $sidebar_width: 22.5rem;
     transform-origin: top;
     opacity: 0;
     transform: translateY(2.5rem);
+    border: 0.1rem solid rgba(color(text-rgb), 0.1);
+    padding: 0.25rem 0.25rem 0.5rem 0.25rem;
+    border-radius: var(--border-radius-base);
 
     a {
       @extend .flex-center;
@@ -142,7 +133,7 @@ $sidebar_width: 22.5rem;
     --width: 14rem;
 
     @include device(mobile) {
-      --width: 13rem;
+      --width: 10.75rem;
     }
 
     .product-category {

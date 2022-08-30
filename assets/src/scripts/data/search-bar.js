@@ -1,14 +1,15 @@
 import { searchService } from "../machines/search";
 import { debounce, get, isEmpty } from "lodash-es";
+import { device } from "../helpers";
 
 export default (props = {}) => ({
   state: "idle",
   hidden: false,
   keyword: "",
-  debouncedGetResults: () => {},
   products: [],
   terms: [],
   type: props?.type || "native",
+  debouncedGetResults: () => {},
 
   init() {
     searchService.onTransition((state) => {
@@ -55,12 +56,31 @@ export default (props = {}) => ({
     this.$refs.searchForm.focus();
   },
 
+  send(event) {
+    searchService.send(event);
+  },
+
   stop() {
-    searchService.send("STOP");
+    if (this.show()) {
+      searchService.send("STOP");
+    }
   },
 
   start() {
     searchService.send("START");
+  },
+
+  show() {
+    return !["idle"].includes(this.state);
+  },
+
+  isModal() {
+    return (
+      device("mobileAndTablet") ||
+      ["common", "minimal", "centered", "robust-centered"].includes(
+        props.headerType
+      )
+    );
   },
 
   async getResults() {

@@ -78,20 +78,18 @@ if ($args) {
       <?php echo selleradise_svg('loader/simple') ?>
     </div>
 
-    <template x-if="$store.miniCart.isEmpty()">
-      <div class="flex justify-center items-center flex-col text-center">
-        <div class="flex justify-center items-center w-20 h-auto mb-5 p-2 children:w-full">
-          <?php echo selleradise_svg('misc/empty-state') ?>
-        </div>
-        <h2 class="text-xl mb-2">
-          <?php echo esc_html__('Your cart is empty.', '[TEXT_DOMAIN]'); ?>
-        </h2>
-        <p class="text-sm text-gray-600">
-          <?php echo esc_html__('Looks like you have not added any product to your cart yet.', '[TEXT_DOMAIN]'); ?>
-        </p>
+    
+    <div x-show="$store.miniCart.isEmpty()" class="flex justify-center items-center flex-col text-center">
+      <div class="flex justify-center items-center w-24 h-auto mb-5 p-2 children:w-full">
+        <?php echo selleradise_svg('misc/empty-state') ?>
       </div>
-    </template>
-
+      <h2 class="text-xl mb-2">
+        <?php echo esc_html__('Your cart is empty.', '[TEXT_DOMAIN]'); ?>
+      </h2>
+      <p class="text-sm text-gray-600">
+        <?php echo esc_html__('Looks like you have not added any product to your cart yet.', '[TEXT_DOMAIN]'); ?>
+      </p>
+    </div>
 
   </div>
 

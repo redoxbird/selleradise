@@ -5,6 +5,9 @@ export default {
   variants: {
     "is-parent-active": ".is-active &",
     "is-active": "&.is-active",
+    "not-top": "&.headroom--not-top",
+    pinned: "&.headroom--pinned",
+    unpinned: "&.headroom--unpinned",
   },
   theme: {
     extend: {
@@ -51,6 +54,7 @@ export default {
       },
       padding: {
         page: "var(--page-padding)",
+        header: "calc(var(--page-padding) - 1rem)",
       },
       gridTemplateRows: {
         8: "repeat(8, minmax(0, 1fr))",
@@ -75,12 +79,14 @@ export default {
         "ratio-padded":
           "calc((var(--width) - 1rem) * var(--product-image-ratio))",
         "screen-adjusted": "calc(100vh - var(--header-height))",
+        header: "var(--header-height)",
       },
       minHeight: {
         "screen-adjusted": "calc(100vh - var(--header-height))",
       },
       boxShadow: {
         "3xl": "0 3.6em 3.6em -2.7em var(--selleradise-color-shadow)",
+        "b-sm": "0 0.1em 0.2em var(--selleradise-color-shadow)",
       },
       zIndex: {
         1000: "1000",

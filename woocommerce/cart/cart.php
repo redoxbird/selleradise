@@ -37,15 +37,15 @@ do_action( 'woocommerce_before_cart' );
 				
 				<li x-data="cartItem" x-bind:style="{'--width': width + 'px'}" class="border-1 border-text-200 rounded-xl overflow-hidden cart_item">
 
-					<div class="w-full bg-text-50 px-4 py-2 text-sm">
-						<ul class="flex justify-start items-center gap-4">
+					<div class="w-full bg-text-50 px-4 py-3 text-sm">
+						<ul class="flex justify-start items-center gap-6">
 							<li class="flex flex-col">
 								<span class="mb-1 text-xs"><?php esc_html_e('Subtotal', '[TEXT_DOMAIN]') ?></span>
 								<span class="font-semibold"><?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok. ?></span>
 							</li>
 							<li class="flex flex-col">
 								<span class="mb-1 text-xs"><?php esc_html_e('Stock', '[TEXT_DOMAIN]') ?></span>
-								<span class="font-semibold"><?php echo $_product->get_stock_status(); ?></span>
+								<span class="font-semibold uppercase"><?php echo $_product->get_stock_status(); ?></span>
 							</li>
 						</ul>
 					</div>

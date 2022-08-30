@@ -53,6 +53,7 @@ class Header
                 'common' => esc_html__('Common', 'selleradise'),
                 'minimal' => esc_html__('Minimal', 'selleradise'),
                 'simple' => esc_html__('Simple', 'selleradise'),
+                'centered' => esc_html__('Centered', 'selleradise'),
                 'robust' => esc_html__('Robust', 'selleradise'),
                 'robust-alt' => esc_html__('Robust Alt', 'selleradise'),
                 'robust-centered' => esc_html__('Robust Centered', 'selleradise'),

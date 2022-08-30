@@ -1,6 +1,6 @@
-import { interpret, Machine } from "xstate";
+import { interpret, createMachine } from "xstate";
 
-export const mobileMenuMachine = Machine(
+export const mobileMenuMachine = createMachine(
   {
     id: "mobileMenu",
     initial: "hidden",

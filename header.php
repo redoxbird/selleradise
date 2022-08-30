@@ -29,6 +29,8 @@
 
 	<?php get_template_part('template-parts/headers/skip-link'); ?>
 	
-	<?php get_template_part('template-parts/headers/header', "default");?>
+	<?php get_template_part('template-parts/headers/header', get_theme_mod('header_type', 'default'));?>
+	<?php get_template_part('template-parts/headers/partials/mini-cart'); ?>
+	<?php get_template_part('template-parts/headers/partials/menu', 'mobile'); ?>
 	
 	<div id="content" class="site-content">

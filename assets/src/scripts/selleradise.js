@@ -1,4 +1,4 @@
-import { lazyLoad } from "./main/lazyload";
+import { lazyLoad } from "./selleradise/lazyload";
 import { el, setChildren } from "redom";
 import scrollama from "scrollama";
 

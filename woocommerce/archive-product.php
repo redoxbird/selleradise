@@ -25,7 +25,7 @@ $category_archive_display = get_option( 'woocommerce_category_archive_display', 
 	data-selleradise-shop-display="<?php echo esc_attr( $shop_page_display ); ?>"
 	data-selleradise-category-display="<?php echo esc_attr( $category_archive_display ); ?>">
 
-	<div class="selleradise_shop__head pr-4 text-md col-span-full">
+	<div class="selleradise_shop__head lg:pr-4 text-md col-span-full">
 
 		<?php 
 			/**

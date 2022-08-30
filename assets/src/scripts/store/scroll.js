@@ -37,7 +37,7 @@ export default {
 
     this.start = this.scroll.y <= 0;
     this.direction = this.scroll.y < scroll.y ? "up" : "down";
-    this.pin = this.scroll.y > 100 && this.direction === "up";
+    this.pin = this.direction === "up";
     this.end = this.scroll.y >= this.height;
   },
 };
