@@ -65,17 +65,6 @@
       </tr>
       <tr>
         <td class="px-2 py-1">
-          <p class="font-bold text-gray-600 text-left">Dark Mode</p>
-        </td>
-        <td class="px-2 py-1">
-          <p class="font-bold text-gray-600 text-center">Yes</p>
-        </td>
-        <td class="px-2 py-1">
-          <p class="font-bold text-gray-600 text-center">Yes</p>
-        </td>
-      </tr>
-      <tr>
-        <td class="px-2 py-1">
           <p class="font-bold text-gray-600 text-left">Shop Filters</p>
         </td>
         <td class="px-2 py-1">

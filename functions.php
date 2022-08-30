@@ -7,7 +7,7 @@
  * @package THEME_NAMESPACE
  */
 
-define('SELLERADISE_VERSION', '1.2.7');
+define('SELLERADISE_VERSION', '2.0.0');
 
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) :
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
