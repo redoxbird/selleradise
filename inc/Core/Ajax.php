@@ -15,15 +15,12 @@ class Ajax
      * @return
      */
     public $ajax_events_nopriv = [
-        'search_products',
         'search_terms',
         'search_posts',
         'get_cart_contents',
         'get_cart_total',
         'remove_item_from_cart',
         'set_cart_item_quantity',
-        'get_menu_items',
-        'get_categories',
         'get_shop_filter_attributes',
     ];
 
@@ -34,53 +31,6 @@ class Ajax
             add_action('wp_ajax_selleradise_' . $ajax_event, [$this, $ajax_event]);
             add_action('wp_ajax_nopriv_selleradise_' . $ajax_event, [$this, $ajax_event]);
         }
-    }
-
-    public function search_products()
-    {
-        if (!isset($_REQUEST['_wpnonce']) || !wp_verify_nonce($_REQUEST['_wpnonce'], 'selleradise_ajax')) {
-
-            wp_send_json([
-                'message' => 'Invalid Request',
-            ]);
-
-            wp_die();
-        };
-
-        $keyword = sanitize_text_field($_GET['keyword']);
-        $category = sanitize_text_field($_GET['category']);
-
-        if (!class_exists('WooCommerce')) {
-            return wp_send_json([]);
-
-            wp_die();
-        }
-
-        $args = [
-            'orderby' => 'relevance',
-            'order' => 'ASC',
-            'return' => 'object',
-            'limit' => 5,
-            'visibility' => 'search',
-        ];
-
-        if ($keyword) {
-            $args['s'] = $keyword;
-        }
-
-        if ($category) {
-            $args['category'] = [$category];
-        }
-
-        $query = new WC_Product_Query($args);
-
-        $products = $query->get_products();
-
-        $data = $this->prepare_product_data_for_search_results($products);
-
-        wp_send_json($data);
-
-        wp_die(); // this is required to terminate immediately and return a proper response
     }
 
     public function search_terms()
@@ -200,6 +150,7 @@ class Ajax
                 "guid" => esc_url(get_permalink($product->get_id())),
                 "price" => wp_kses_post($product->get_price_html()),
                 "id" => $product->get_id(),
+                'image' => $product->get_image('thumbnail'),
             ];
 
             $image = $product->get_image_id();
@@ -361,106 +312,6 @@ class Ajax
         wp_die();
     }
 
-    public function get_menu_items()
-    {
-        if (!isset($_REQUEST['_wpnonce']) || !wp_verify_nonce($_REQUEST['_wpnonce'], 'selleradise_ajax')) {
-
-            wp_send_json([
-                'message' => 'Invalid Request',
-            ]);
-
-            wp_die();
-        };
-
-        $mobile_menu = get_transient('selleradise_mobile_menu_tree');
-
-        if (false === $mobile_menu) {
-            $mobile_menu = $this->prepare_menu_items(selleradise_get_menu_items_by_registered_slug('mobile'));
-            set_transient('selleradise_mobile_menu_tree', $mobile_menu, DAY_IN_SECONDS);
-        }
-
-        wp_send_json($mobile_menu);
-
-        wp_die();
-    }
-
-    private function prepare_menu_items($items)
-    {
-
-        if (empty($items)) {
-            return [];
-        }
-
-        $data = [];
-
-        foreach ($items as $key => $item) {
-            $item_data = [];
-            $item_data["title"] = esc_html($item->title);
-            $item_data["ID"] = (int) esc_attr($item->ID);
-            $item_data["classes"] = esc_attr(implode(' ', $item->classes));
-            $item_data["url"] = esc_url($item->url);
-            $item_data["target"] = esc_attr($item->target);
-            $item_data["attr_title"] = esc_attr($item->attr_title);
-            $item_data["menu_item_parent"] = (int) esc_attr($item->menu_item_parent);
-
-            $data[] = $item_data;
-        }
-
-        return selleradise_create_tree($data, 'menu_item_parent', 'ID');
-    }
-
-    public function get_categories()
-    {
-        if (!isset($_REQUEST['_wpnonce']) || !wp_verify_nonce($_REQUEST['_wpnonce'], 'selleradise_ajax')) {
-
-            wp_send_json([
-                'message' => 'Invalid Request',
-            ]);
-
-            wp_die();
-        };
-
-        $categories_tree = get_transient('selleradise_categories_tree');
-
-        if (false === $categories_tree) {
-            $categories_tree = $this->prepare_categories(selleradise_get_product_categories());
-            set_transient('selleradise_categories_tree', $categories_tree, DAY_IN_SECONDS);
-        }
-
-        wp_send_json($categories_tree);
-
-        wp_die();
-    }
-
-    private function prepare_categories($items)
-    {
-
-        if (empty($items)) {
-            return [];
-        }
-
-        $data = [];
-
-        foreach ($items as $term) {
-            $image = [];
-            $image["id"] = (int) esc_attr(get_term_meta($term->term_id, 'thumbnail_id', true));
-            $image["thumbnail"] = wp_get_attachment_image_src($image["id"], 'thumbnail');
-            $image["alt"] = esc_attr(get_post_meta($image["id"], '_wp_attachment_image_alt', true));
-
-            $data[] = [
-                'term_id' => (int) esc_attr($term->term_id),
-                'slug' => esc_attr($term->slug),
-                'name' => esc_html($term->name),
-                'url' => esc_url(get_term_link($term)),
-                'description' => esc_html($term->description),
-                'parent' => (int) esc_attr($term->parent),
-                'count' => (int) esc_attr($term->count),
-                'image' => $image,
-            ];
-        }
-
-        return selleradise_create_tree($data, 'parent', 'term_id');
-    }
 
     public function get_shop_filter_attributes()
     {

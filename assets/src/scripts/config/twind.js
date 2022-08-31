@@ -21,9 +21,9 @@ export default {
           900: "var(--selleradise-color-accent-light)",
         },
         background: {
-          50: "var(--selleradise-color-background)",
           100: "rgba(var(--selleradise-color-background-rgb), 0.1)",
           200: "rgba(var(--selleradise-color-background-rgb), 0.2)",
+          900: "var(--selleradise-color-background)",
         },
         main: {
           text: "var(--selleradise-color-main-text)",

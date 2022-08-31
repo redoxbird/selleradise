@@ -15,7 +15,11 @@ export default () => ({
     }
 
     window.addEventListener("load", () => {
-      this.embla = EmblaCarousel(this.$refs.images, { loop: false });
+      this.embla = EmblaCarousel(this.$refs.images, {
+        selectedClass: "",
+        loop: false,
+        skipSnaps: false,
+      });
       this.emblaThumbs = EmblaCarousel(this.$refs.thumbs, {
         selectedClass: "",
         containScroll: "keepSnaps",
@@ -23,6 +27,7 @@ export default () => ({
       });
       this.embla.on("select", () => {
         this.setActiveIndex();
+        this.emblaThumbs.scrollTo(this.embla.selectedScrollSnap());
       });
     });
   },
@@ -34,7 +39,7 @@ export default () => ({
   },
 
   setActiveIndex() {
-    this.activeIndex = this.embla.internalEngine().index.get();
+    this.activeIndex = this.embla.selectedScrollSnap();
   },
 
   isInView(index) {

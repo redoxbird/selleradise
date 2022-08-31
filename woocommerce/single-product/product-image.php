@@ -47,35 +47,39 @@ array_unshift($gallery_image_ids, $post_thumbnail_id);
 			<?php endforeach; ?>
 		</ul>
 
-		<div class="flex justify-center items-center absolute bottom-2 left-1/2 -translate-x-1/2 bg-white border-1 border-gray-300 rounded-full text-gray-600">
-			<button class="selleradise_slider__nav--previous" x-on:click.prevent="emblaPrev()"><?php echo selleradise_svg('tabler-icons/chevron-left') ?></button>
-			<button class="selleradise_slider__nav--next" x-on:click.prevent="emblaNext()"><?php echo selleradise_svg('tabler-icons/chevron-right') ?></button>
-		</div>
+		<?php if(count($gallery_image_ids) > 1): ?>
+			<div class="flex justify-center items-center absolute bottom-2 left-1/2 -translate-x-1/2 bg-white border-1 border-gray-300 rounded-full text-gray-600">
+				<button class="selleradise_slider__nav--previous" x-on:click.prevent="emblaPrev()"><?php echo selleradise_svg('tabler-icons/chevron-left') ?></button>
+				<button class="selleradise_slider__nav--next" x-on:click.prevent="emblaNext()"><?php echo selleradise_svg('tabler-icons/chevron-right') ?></button>
+			</div>
+		<?php endif; ?>
 	</div>
 
-	<div x-ref="thumbs" class="embla w-[40rem] my-4">
-		<div class="embla__container gap-4">
-			<?php
-			foreach ($gallery_image_ids as $index => $image_id) :
-				$thumbnail = wp_get_attachment_image_src($image_id, 'thumbnail');
+	<?php if(count($gallery_image_ids) > 1): ?>
+		<div x-ref="thumbs" class="embla my-4">
+			<div class="embla__container gap-4">
+				<?php
+				foreach ($gallery_image_ids as $index => $image_id) :
+					$thumbnail = wp_get_attachment_image_src($image_id, 'thumbnail');
 
-				if (!$thumbnail) {
-					continue;
-				}
+					if (!$thumbnail) {
+						continue;
+					}
 
-			?>
-				<button
-				  class="w-40 h-40 rounded-lg overflow-hidden"
-				  x-bind:class="{'transition-all opacity-50': isInView(<?php echo esc_attr($index); ?>) }"
-				  x-on:click.prevent="onThumbClick(<?php echo esc_attr($index); ?>)">
-					<img
-					  class="w-full h-full object-cover"
-						x-lazy:src="<?php echo esc_url($thumbnail[0]); ?>"
-						src="<?php echo esc_url(wc_placeholder_img_src()); ?>"
-					  alt="">
-				</button>
-			<?php endforeach; ?>
+				?>
+					<button
+						class="w-2/5 lg:w-1/4 h-40 relative flex-shrink-0 rounded-2xl overflow-hidden"
+						x-bind:class="{'transition-all opacity-50': isInView(<?php echo esc_attr($index); ?>) }"
+						x-on:click.prevent="onThumbClick(<?php echo esc_attr($index); ?>)">
+						<img
+							class="absolute inset-0 !max-w-none w-full !h-full object-cover"
+							x-lazy:src="<?php echo esc_url($thumbnail[0]); ?>"
+							src="<?php echo esc_url(wc_placeholder_img_src()); ?>"
+							alt="">
+					</button>
+				<?php endforeach; ?>
+			</div>
 		</div>
-	</div>
+	<?php endif; ?>
 
 </div>

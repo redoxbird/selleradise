@@ -50,7 +50,7 @@ do_action( 'woocommerce_before_cart' );
 						</ul>
 					</div>
 
-					<div class="p-4 bg-background-50 border-t-[0.05rem] border-text-200">
+					<div class="p-4 bg-background-900 border-t-[0.05rem] border-text-200">
 						<div class="flex justify-start items-start">
 							<?php
 								$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );

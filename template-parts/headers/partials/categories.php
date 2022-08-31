@@ -27,12 +27,15 @@ if (isset($args)) {
   <?php endif; ?>
   >
 
-  <?php foreach ($items as $item) : $image = wp_get_attachment_image_src($item['term_id'], 'thumbnail'); ?>
+  <?php foreach ($items as $item):
+    $thumbnail_id = get_term_meta($item['term_id'], 'thumbnail_id', true);
+    $image = wp_get_attachment_image_src($thumbnail_id, 'thumbnail');
+  ?>
     <li class="list-none flex justify-between flex-wrap items-center w-full" x-data="{activeChild: false}">
-      <a href="<?php echo $item['url']; ?>" class="flex justify-start items-center flex-1 py-2 my-2 font-primary font-semibold focus-within:text-primary rounded-full">
+      <a href="<?php echo $item['url']; ?>" class="flex justify-start items-center flex-1 py-2 my-2 font-primary text-sm font-semibold rounded-full">
         <?php if($image): ?>
           <img
-					  class="w-10 h-10 rounded-full mr-2 shrink-0 object-cover"
+					  class="w-10 h-10 rounded-full mr-3 shrink-0 object-cover"
 					  src="<?php echo esc_url(selleradise_get_image_placeholder()); ?>"
 						x-lazy:src="<?php echo esc_url($image[0]); ?>"
 					  alt="<?php echo esc_attr($item['name']); ?> Image"

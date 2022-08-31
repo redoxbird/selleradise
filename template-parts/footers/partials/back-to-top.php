@@ -28,7 +28,7 @@ if (get_theme_mod('disable_back_to_top', false) === true) {
     x-bind:style="{'--dasharray': dashArray, '--dashoffset': dashOffset}" 
     href="#page"
     aria-label="<?php esc_attr_e('Go back to top', '[TEXT_DOMAIN]'); ?>" 
-    class="selleradise_back-to-top selleradise_trigger_smoothscroll" 
+    class="selleradise_back-to-top selleradise_trigger_smoothscroll z-1000" 
     data-smoothscroll-y="0" 
     role="button">
     <svg class="progress">

@@ -17,7 +17,7 @@
     background-color: color(background);
     color: color(text);
     z-index: 1300;
-    padding: 2.5rem 2.5rem 5rem 2.5rem;
+    padding: 0 2.5rem 5rem 2.5rem;
     border-radius: var(--border-radius-base);
     transform-origin: left center;
     &-enter-active,
@@ -56,7 +56,7 @@
   &__head {
     @extend .flex-between;
     width: 100%;
-    margin-bottom: 2.5rem;
+    padding: 1.5rem 0 1rem 0;
 
     &Count {
       margin: 0;

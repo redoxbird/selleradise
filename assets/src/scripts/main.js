@@ -2,7 +2,7 @@ import Alpine from "alpinejs";
 import intersect from "@alpinejs/intersect";
 import collapse from "@alpinejs/collapse";
 import focus from "@alpinejs/focus";
-import * as Shim from "twind/shim";
+import * as TwindShim from "twind/shim";
 
 import miniCart from "./store/mini-cart";
 import mobileMenu from "./store/mobile-menu";
@@ -33,7 +33,7 @@ import { selleradise } from "./selleradise";
 import { default as TwindConfig } from "./config/twind";
 
 window.Alpine = Alpine;
-window.Shim = Shim;
+window.Twind = TwindShim;
 
 // Plugins
 window.Alpine.plugin(intersect);
@@ -71,8 +71,8 @@ window.Alpine.data("faqs", faqs);
 
 // Initiate twind
 window.TwindConfig = TwindConfig;
-window.Shim.setup(window.TwindConfig);
-window.Shim.disconnect();
+window.Twind.setup(window.TwindConfig);
+window.Twind.disconnect();
 
 // Initiate selleradise
 window.Selleradise = selleradise();
@@ -93,10 +93,10 @@ window.addEventListener("selleradise-widget-initialized", (e) => {
 
   console.log(e.detail);
 
-  window.Shim.setup({
+  window.Twind.setup({
     ...window.TwindConfig,
     target: e.detail?.element || document.documentElement,
   });
 
-  window.Shim.disconnect();
+  window.Twind.disconnect();
 });

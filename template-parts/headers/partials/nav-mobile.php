@@ -21,7 +21,7 @@ if (isset($args)) {
   >
   <?php foreach ($items as $item) : ?>
     <li class="list-none flex justify-between flex-wrap items-center w-full" x-data="{activeChild: '<?php echo $item->activeAncestor ? true : false ?>'}">
-      <a href="<?php echo $item->url; ?>" class="block flex-1 py-2 my-2 font-primary font-semibold focus-within:text-primary rounded-full <?php echo $item->active ? 'bg-gray-100' : ''; ?>">
+      <a href="<?php echo $item->url; ?>" class="block flex-1 py-2 my-2 font-primary font-semibold text-sm rounded-full <?php echo $item->active ? 'bg-gray-100' : ''; ?>">
         <?php echo $item->label; ?>
       </a>
 

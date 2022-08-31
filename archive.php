@@ -11,9 +11,9 @@ get_header(); ?>
 
 <div id="primary" class="content-area <?php echo selleradise_blog_page_classes(); ?>">
 
-	<div class="selleradise_page__title">
+	<div class="mt-8">
 		<?php
-			the_archive_title( '<h1 class="page-title text-3xl mb-4">', '</h1>' );
+			the_archive_title( '<h1 class="page-title text-4xl mb-4">', '</h1>' );
 			the_archive_description( '<div class="archive-description">', '</div>' );
 		?>
 	</div>

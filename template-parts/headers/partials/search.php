@@ -48,9 +48,9 @@ $type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
       type="text"
       x-bind:value="keyword"
       x-on:input="start(); handleInputChange($event)"
-      x-on:keydown.enter="handleEnterPress($event)"
+      x-on:keydown="handelInputKeyDown($event)"
       class="searchField"
-      ref="searchField"
+      x-ref="input"
       name="s"
       autocomplete="off"
       maxlength="50"
@@ -82,7 +82,15 @@ $type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
     </span>
   </button>
 
-  <div x-show="state === 'found'" x-transition class="selleradiseHeader__searchResults mt-4 rounded-lg" ref="selleradiseHeader__searchResults" x-cloak>
+  <div
+    x-show="state === 'found'"
+    x-transition
+    class="selleradiseHeader__searchResults mt-4 rounded-lg"
+    x-ref="results"
+    x-on:keydown.down.prevent="$focus.wrap().next()"
+    x-on:keydown.up.prevent="$focus.wrap().previous()"
+    x-on:keydown.esc="$focus.focus($refs.input)"
+    x-cloak>
     <ul class="selleradiseHeader__searchResults-inner">
       <li x-show="terms && terms.length > 0">
         <ul class="selleradiseHeader__searchResults-suggestions--categories">
@@ -94,16 +102,19 @@ $type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
         </ul>
       </li>
 
+      <span class="hidden w-16 h-16 mr-2 rounded-xl overflow-hidden"></span>
+
       <li x-show="products && products.length > 0">
         <ul class="selleradiseHeader__searchResults-suggestions--products">
           <template x-for="product in products">
-            <li>
-              <a 
-                class="text-sm font-semibold" 
-                x-bind:href="getLink(product, 'product')" 
-                x-text="getName(product, 'product')">
+            <li class="w-full">
+              <a class="w-full flex justify-start items-start" x-bind:href="getLink(product, 'product')" >
+                <div class="w-16 h-16 mr-4 rounded-xl overflow-hidden flex justify-center items-center" x-show="getImage(product)" x-html="getImage(product)"></div>
+                <div>
+                  <h2 class="text-sm font-semibold" x-text="getName(product, 'product')"></h2>
+                  <span x-show="getPrice(product)" class="mt-2 opacity-75 text-sm" x-html="getPrice(product)"></span>
+                </div>
               </a>
-              <span x-show="getPrice(product)" class="mt-2 opacity-75 text-sm" x-html="getPrice(product)"></span>
             </li>
           </template>
         </ul>

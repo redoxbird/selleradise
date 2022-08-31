@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 <header
   x-data
   role="banner"
-  class="selleradiseHeader fixed z-1000 left-0 right-0 w-full h-header duration-700 ease-out-expo transition-all not-top:bg-background-50 not-top:shadow-b-sm"
+  class="selleradiseHeader fixed z-1000 left-0 right-0 w-full h-header duration-700 ease-out-expo transition-all not-top:bg-background-900 not-top:shadow-b-sm"
   x-bind:class="{'headroom--unpinned': !$store.scroll.pin, 'headroom--pinned': $store.scroll.pin, 'headroom--not-top': !$store.scroll.start}"
   x-bind:style="{transform: !$store.scroll.pin & !$store.scroll.start ? 'translateY(calc(var(--header-height) * -0.625))' : ''}">
   

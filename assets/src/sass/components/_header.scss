@@ -60,7 +60,7 @@
   &--overlay {
     position: fixed;
     left: 50%;
-    top: 10rem;
+    top: 7.5rem;
     margin-left: -25%;
     width: 50%;
     background: color(background);
@@ -286,7 +286,6 @@
       @extend .flex-start;
       flex-wrap: nowrap;
       font-size: 1rem;
-      border-radius: var(--border-radius-half);
       transition: all 400ms easing(out-expo);
       color: color(text);
 
@@ -332,7 +331,6 @@
 
 .selleradiseHeader {
   &__trigger {
-    @include focus-outline;
     background-color: transparent;
     display: inline-flex;
     justify-content: center;
@@ -340,7 +338,6 @@
     border-radius: 5em;
     color: rgba(color(text-rgb), 0.7);
     border: none;
-    outline: none;
     position: relative;
     padding: 1rem;
     transition: all 300ms easing(out-expo);
@@ -349,13 +346,6 @@
     img {
       width: 1.5rem;
       height: 1.5rem;
-    }
-
-    &:hover,
-    &:active,
-    &.selected {
-      background-color: rgba(color(text-rgb), 0.05);
-      color: color(text);
     }
 
     &--mobileMenu {

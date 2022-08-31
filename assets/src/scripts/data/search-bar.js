@@ -27,12 +27,24 @@ export default (props = {}) => ({
     searchService.send("STOP");
   },
 
-  handleEnterPress(e) {
-    if (this.keyword.length <= 2) {
-      e.preventDefault();
-    } else {
-      console.log(this.$refs.searchForm);
-      this.$refs.searchForm.submit();
+  handelInputKeyDown(e) {
+    switch (e.key) {
+      case "Enter":
+        if (this.keyword.length <= 2) {
+          e.preventDefault();
+        } else {
+          console.log(this.$refs.searchForm);
+          this.$refs.searchForm.submit();
+        }
+        break;
+      case "ArrowDown":
+        e.preventDefault();
+        e.stopPropagation();
+        this.$focus.within(this.$refs.results).first();
+        break;
+
+      default:
+        break;
     }
   },
 
@@ -153,6 +165,7 @@ export default (props = {}) => ({
 
     return get(item, key[of][this.type]);
   },
+
   getLink(result, of) {
     const key = {
       product: {
@@ -171,6 +184,15 @@ export default (props = {}) => ({
   getPrice(result) {
     const key = {
       native: "price",
+    };
+
+    return get(result, key[this.type]);
+  },
+
+  getImage(result) {
+    const key = {
+      native: "image",
+      fibosearch: "thumb_html",
     };
 
     return get(result, key[this.type]);
