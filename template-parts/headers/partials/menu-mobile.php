@@ -32,7 +32,7 @@ $categories = selleradise_get_product_categories_tree();
     </button>
 
     <nav
-      class="absolute top-20 left-0 right-20 bottom-0 z-10 px-10 pt-10"
+      class="absolute top-20 left-0 right-20 bottom-0 z-10 px-6 pt-10"
       role="navigation"
       aria-label="Primary"
       x-show="$store.mobileMenu.activeSidebar === 'menu'"

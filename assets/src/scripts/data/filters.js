@@ -91,7 +91,6 @@ export default (props) => ({
   },
 
   handleAttributeChange(e, attribute, value) {
-    console.log(attribute, value);
     let field = this.fields.attributes[attribute.attribute_name];
 
     if (!field) {
@@ -181,8 +180,6 @@ export default (props) => ({
 
       this.fields.attributes[attribute_name].push(slug);
     }
-
-    console.log(this.fields);
 
     return isSelected;
   },

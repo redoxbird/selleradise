@@ -19,9 +19,13 @@ if (isset($args)) {
     class="m-0 pb-12 w-full text-md min-h-[30rem]" 
   <?php endif; ?>
   >
-  <?php foreach ($items as $item) : ?>
-    <li class="list-none flex justify-between flex-wrap items-center w-full" x-data="{activeChild: '<?php echo $item->activeAncestor ? true : false ?>'}">
-      <a href="<?php echo $item->url; ?>" class="block flex-1 py-2 my-2 font-primary font-semibold text-sm rounded-full <?php echo $item->active ? 'bg-gray-100' : ''; ?>">
+  <?php foreach ($items as $item): ?>
+    <li class="list-none flex justify-between flex-wrap items-center w-full <?php echo esc_attr($item->classes); ?>" x-data="{activeChild: '<?php echo $item->activeAncestor ? true : false ?>'}">
+      <a
+        href="<?php echo esc_url($item->url); ?>"
+        title="<?php echo esc_attr($item->title); ?>"
+        target="<?php echo esc_attr($item->target); ?>"
+        class="block flex-1 py-2 px-4 my-2 font-primary font-semibold text-sm rounded-full <?php echo esc_attr($item->active ? 'bg-gray-100' : ''); ?>">
         <?php echo $item->label; ?>
       </a>
 

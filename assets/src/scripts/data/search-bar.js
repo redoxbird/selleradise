@@ -33,7 +33,6 @@ export default (props = {}) => ({
         if (this.keyword.length <= 2) {
           e.preventDefault();
         } else {
-          console.log(this.$refs.searchForm);
           this.$refs.searchForm.submit();
         }
         break;

@@ -33,7 +33,7 @@
     color: color(background);
     border-radius: var(--border-radius-base);
     backdrop-filter: blur(0.25em);
-    background-color: rgba(var(--light-theme_color-background-rgb), 0.5);
+    background-color: rgba(color(background-rgb), 0.5);
     color: color(dark);
   }
 

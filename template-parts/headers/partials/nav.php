@@ -20,12 +20,14 @@ if (isset($args)) {
     class="<?php echo esc_attr(selleradise_nav_classes("ul", $level)); ?>"
   >
   <?php foreach ($items as $item) : ?>
-    <li x-on:mouseenter="activeChild = true" x-on:mouseleave="activeChild = false" x-data="{activeChild: false}" class="<?php echo esc_attr(selleradise_nav_classes("li", $level)); ?>">
+    <li x-on:mouseenter="activeChild = true" x-on:mouseleave="activeChild = false" x-data="{activeChild: false}" class="<?php echo esc_attr(selleradise_nav_classes("li", $level)); ?> <?php echo esc_attr($item->classes); ?>">
       <a
         href="<?php echo $item->url; ?>"
+        title="<?php echo esc_attr($item->title); ?>"
+        target="<?php echo esc_attr($item->target); ?>"
         x-on:keyup.prevent.down="activeChild = true"
         x-on:keyup.prevent.up="activeChild = false"
-        class="<?php echo esc_attr(selleradise_nav_classes("a", $level)); ?> <?php echo $item->active ? 'bg-gray-100' : ''; ?>">
+        class="<?php echo esc_attr(selleradise_nav_classes("a", $level)); ?> <?php echo esc_attr($item->active ? 'bg-gray-100' : ''); ?>">
 
         <span class="mr-1">
            <?php echo $item->label; ?>

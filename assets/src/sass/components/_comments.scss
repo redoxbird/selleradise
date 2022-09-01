@@ -65,7 +65,6 @@
         b.fn {
           @include font-size(small);
           font-weight: font("primary_boldest", "font-weight");
-          color: rgba(color(text-rgb), 0.7);
 
           a {
             color: inherit;
@@ -90,9 +89,12 @@
       }
 
       &-content {
-        @extend .selleradise_prose;
         color: color(text);
-        padding-left: 3.5rem;
+        padding: 1rem 0 1rem 3.5rem;
+
+        a {
+          text-decoration: underline;
+        }
       }
 
       &-reply-title {

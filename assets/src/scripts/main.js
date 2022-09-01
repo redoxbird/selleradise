@@ -12,8 +12,10 @@ import scroll from "./store/scroll";
 import tooltip from "./directive/tooltip";
 import embla from "./directive/embla";
 import lazy from "./directive/lazy";
+import emblaTabs from "./directive/embla-tabs";
 
 import setSrc from "./magic/setSrc";
+import device from "./magic/device";
 
 import addToCart from "./data/add-to-cart";
 import header from "./data/header";
@@ -50,9 +52,11 @@ window.Alpine.store("scroll", scroll);
 window.Alpine.directive("tooltip", tooltip);
 window.Alpine.directive("embla", embla);
 window.Alpine.directive("lazy", lazy);
+window.Alpine.directive("embla-tabs", emblaTabs);
 
 // Magic properties
 window.Alpine.magic("setSrc", setSrc);
+window.Alpine.magic("device", device);
 
 // Data
 window.Alpine.data("header", header);
@@ -90,8 +94,6 @@ window.addEventListener("selleradise-widget-initialized", (e) => {
   if (!e.detail?.isEdit) {
     return;
   }
-
-  console.log(e.detail);
 
   window.Twind.setup({
     ...window.TwindConfig,

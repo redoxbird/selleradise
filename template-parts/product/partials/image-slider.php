@@ -14,7 +14,10 @@ if (!$gallery_image_ids) {
 
 ?>
 
-<div x-embla class="selleradise_productCard__slider rounded-2xl embla h-ratio-padded">
+<div
+  x-embla
+  x-embla:main
+  class="selleradise_productCard__slider rounded-2xl embla h-ratio-padded">
     <div class="embla__container !h-full">
         <?php
         foreach ($gallery_image_ids as $image_id) :
