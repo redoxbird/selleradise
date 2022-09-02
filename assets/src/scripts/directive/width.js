@@ -3,10 +3,6 @@ export default (
   { value, modifiers, expression },
   { Alpine, effect, cleanup }
 ) => {
-  window.addEventListener("load", () => {
-    setWidth();
-  });
-
   window.addEventListener(
     "resize",
     Alpine.throttle(() => {
@@ -22,7 +18,13 @@ export default (
     setWidth();
   });
 
+  Alpine.bind(el, {
+    "x-init"() {
+      setWidth();
+    },
+  });
+
   function setWidth() {
-    el.style.setProperty("--width", el.offsetWidth);
+    el.style.setProperty("--width", el.offsetWidth + "px");
   }
 };

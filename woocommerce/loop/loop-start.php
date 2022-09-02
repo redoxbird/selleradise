@@ -16,4 +16,4 @@ $filters_location = get_theme_mod('filters_location', 'sidebar');
 $fillwidth = $filters_location === "offscreen" || is_single();
 
 ?>
-<ul class="selleradise_shop__products-list items-start grid gap-8 <?php echo esc_attr(selleradise_products_classes($card_type, $fillwidth)) ?>">
+<ul class="selleradise_shop__products-list list-none m-0 p-0 items-start grid gap-8 <?php echo esc_attr(selleradise_products_classes($card_type, $fillwidth)) ?>">

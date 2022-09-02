@@ -20,7 +20,11 @@ if (isset($args)) {
     class="<?php echo esc_attr(selleradise_nav_classes("ul", $level)); ?>"
   >
   <?php foreach ($items as $item) : ?>
-    <li x-on:mouseenter="activeChild = true" x-on:mouseleave="activeChild = false" x-data="{activeChild: false}" class="<?php echo esc_attr(selleradise_nav_classes("li", $level)); ?> <?php echo esc_attr($item->classes); ?>">
+   <li
+      x-on:mouseenter="activeChild = true"
+      x-on:mouseleave="activeChild = false"
+      x-data="{activeChild: false}"
+      class="<?php echo esc_attr(selleradise_nav_classes("li", $level)); ?> <?php echo esc_attr($item->classes); ?>">
       <a
         href="<?php echo $item->url; ?>"
         title="<?php echo esc_attr($item->title); ?>"

@@ -2,6 +2,7 @@ import * as colors from "twind/colors";
 
 export default {
   target: document.querySelector("body"),
+  preflight: false,
   variants: {
     "is-parent-active": ".is-active &",
     "is-active": "&.is-active",
@@ -23,6 +24,8 @@ export default {
         background: {
           100: "rgba(var(--selleradise-color-background-rgb), 0.1)",
           200: "rgba(var(--selleradise-color-background-rgb), 0.2)",
+          700: "rgba(var(--selleradise-color-background-rgb), 0.7)",
+          800: "rgba(var(--selleradise-color-background-rgb), 0.9)",
           900: "var(--selleradise-color-background)",
         },
         main: {

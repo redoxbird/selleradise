@@ -48,7 +48,7 @@ array_unshift($gallery_image_ids, $post_thumbnail_id);
 		</ul>
 
 		<?php if(count($gallery_image_ids) > 1): ?>
-			<div class="flex justify-center items-center absolute bottom-2 left-1/2 -translate-x-1/2 bg-white border-1 border-gray-300 rounded-full text-gray-600">
+			<div class="flex justify-center items-center absolute bottom-2 left-1/2 -translate-x-1/2 bg-white border-1 border-solid border-gray-300 rounded-full text-gray-600">
 				<button class="selleradise_slider__nav--previous" x-on:click.prevent="emblaPrev()"><?php echo selleradise_svg('tabler-icons/chevron-left') ?></button>
 				<button class="selleradise_slider__nav--next" x-on:click.prevent="emblaNext()"><?php echo selleradise_svg('tabler-icons/chevron-right') ?></button>
 			</div>
@@ -68,7 +68,7 @@ array_unshift($gallery_image_ids, $post_thumbnail_id);
 
 				?>
 					<button
-						class="w-2/5 lg:w-1/4 h-40 relative flex-shrink-0 rounded-2xl overflow-hidden"
+						class="w-2/5 lg:w-1/4 h-40 relative flex-shrink-0 rounded-2xl overflow-hidden border-none"
 						x-bind:class="{'transition-all opacity-50': isInView(<?php echo esc_attr($index); ?>) }"
 						x-on:click.prevent="onThumbClick(<?php echo esc_attr($index); ?>)">
 						<img

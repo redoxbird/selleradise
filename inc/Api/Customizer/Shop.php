@@ -63,6 +63,7 @@ class Shop
                 'simple' => esc_html__('Simple', '[TEXT_DOMAIN]'),
                 'list' => esc_html__('List', '[TEXT_DOMAIN]'),
                 'compact' => esc_html__('Compact', '[TEXT_DOMAIN]'),
+                'rounded' => esc_html__('Rounded', '[TEXT_DOMAIN]'),
             ],
             'transport' => 'refresh',
         ]);

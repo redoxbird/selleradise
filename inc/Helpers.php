@@ -956,11 +956,11 @@ if (!function_exists('selleradise_nav_classes')) {
     {
         if ($tag === "ul") {
             if ($level === 1) {
-                return "relative flex nowrap justify-start items-center";
+                return "relative m-0 p-0 flex nowrap justify-start items-center";
             } else if ($level === 2) {
-                return "bg-white border-1 rounded-lg p-2 border-gray-200 absolute left-0 min-w-full top-full";
+                return "m-0 bg-white border-1 border-solid rounded-lg p-2 border-gray-200 absolute left-0 min-w-full top-full";
             } else if ($level > 2) {
-                return "bg-white border-1 rounded-lg p-2 border-gray-200 absolute left-full ml-2 min-w-44 min-h-full top-0";
+                return "m-0 bg-white border-1 border-solid rounded-lg p-2 border-gray-200 absolute left-full ml-2 min-w-44 min-h-full top-0";
             };
         } else if ($tag === "li") {
             if ($level === 1) {
@@ -970,9 +970,9 @@ if (!function_exists('selleradise_nav_classes')) {
             };
         } else if ($tag === "a") {
             if ($level === 1) {
-                return "flex justify-center items-center nowrap px-4 py-1 font-semibold text-sm focus-within:bg-gray-100 rounded-full";
+                return "flex justify-center items-center nowrap px-4 py-1 font-semibold text-sm text-text-900 focus-within:bg-gray-100 rounded-full";
             } else if ($level > 1) {
-                return "flex w-full justify-start items-center nowrap px-4 py-1 font-semibold text-sm focus-within:bg-gray-100 rounded-full";
+                return "flex w-full justify-start items-center nowrap px-4 py-1 font-semibold text-sm text-text-900 focus-within:bg-gray-100 rounded-full";
             };
         }
 
@@ -1013,6 +1013,11 @@ if (!function_exists('selleradise_products_classes')) {
                     "md" => 2,
                     "lg" => 3,
                 ],
+                "rounded" => [
+                    "sm" => 1,
+                    "md" => 5,
+                    "lg" => 5,
+                ],
             ];
         } else {
             $cols = [
@@ -1035,6 +1040,80 @@ if (!function_exists('selleradise_products_classes')) {
                     "sm" => 2,
                     "md" => 5,
                     "lg" => 5,
+                ],
+                "list" => [
+                    "sm" => 1,
+                    "md" => 2,
+                    "lg" => 2,
+                ],
+                "rounded" => [
+                    "sm" => 1,
+                    "md" => 4,
+                    "lg" => 4,
+                ],
+            ];
+        }
+
+        return "grid-cols-" . $cols[$card_type]['sm'] . " md:grid-cols-" . $cols[$card_type]['md'] . " lg:grid-cols-" . $cols[$card_type]['lg'];
+    }
+}
+
+
+if (!function_exists('selleradise_posts_classes')) {
+
+    function selleradise_posts_classes($card_type, $fullwidth = false)
+    {
+        $cols = [];
+
+        if ($fullwidth) {
+            $cols = [
+                "default" => [
+                    "sm" => 1,
+                    "md" => 2,
+                    "lg" => 4,
+                ],
+                "minimal" => [
+                    "sm" => 1,
+                    "md" => 2,
+                    "lg" => 4,
+                ],
+                "popular" => [
+                    "sm" => 1,
+                    "md" => 2,
+                    "lg" => 4,
+                ],
+                "text" => [
+                    "sm" => 1,
+                    "md" => 2,
+                    "lg" => 4,
+                ],
+                "list" => [
+                    "sm" => 1,
+                    "md" => 2,
+                    "lg" => 3,
+                ],
+            ];
+        } else {
+            $cols = [
+                "default" => [
+                    "sm" => 1,
+                    "md" => 2,
+                    "lg" => 2,
+                ],
+                "minimal" => [
+                    "sm" => 1,
+                    "md" => 2,
+                    "lg" => 2,
+                ],
+                "popular" => [
+                    "sm" => 1,
+                    "md" => 2,
+                    "lg" => 2,
+                ],
+                "text" => [
+                    "sm" => 1,
+                    "md" => 2,
+                    "lg" => 2,
                 ],
                 "list" => [
                     "sm" => 1,

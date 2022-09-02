@@ -30,7 +30,7 @@ if (isset($classes) && $classes) {
 <li
   x-data="productCard"
   x-bind:style="{'--width': width + 'px'}"
-  class="<?php echo esc_attr($class); ?> flex flex-col justify-start items-start rounded-2xl bg-background-900 text-text-900 border-1 border-gray-200 hover:border-gray-300 pt-2 px-2 overflow-hidden transition-all">
+  class="<?php echo esc_attr($class); ?> flex flex-col justify-start items-start rounded-2xl bg-background-900 text-text-900 border-1 border-solid border-gray-200 hover:border-gray-300 pt-2 px-2 overflow-hidden transition-all">
 
     <?php do_action('woocommerce_before_shop_loop_item');?>
     
@@ -48,7 +48,7 @@ if (isset($classes) && $classes) {
       <?php do_action('woocommerce_before_shop_loop_item_title');?>
 
       <h3 class="text-sm m-0 flex-grow w-3/5 leading-normal">
-          <a class="flex-grow text-inherit hover:text-main-900 hover:underline"  href="<?php echo esc_url($product->get_permalink()); ?>">
+          <a class="flex-grow text-text-900 text-inherit hover:text-main-900 hover:underline"  href="<?php echo esc_url($product->get_permalink()); ?>">
               <?php echo esc_attr( $product->get_name() ) ?>
           </a>
       </h3>

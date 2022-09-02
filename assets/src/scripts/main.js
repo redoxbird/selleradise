@@ -13,6 +13,7 @@ import tooltip from "./directive/tooltip";
 import embla from "./directive/embla";
 import lazy from "./directive/lazy";
 import emblaTabs from "./directive/embla-tabs";
+import width from "./directive/width";
 
 import setSrc from "./magic/setSrc";
 import device from "./magic/device";
@@ -53,6 +54,7 @@ window.Alpine.directive("tooltip", tooltip);
 window.Alpine.directive("embla", embla);
 window.Alpine.directive("lazy", lazy);
 window.Alpine.directive("embla-tabs", emblaTabs);
+window.Alpine.directive("width", width);
 
 // Magic properties
 window.Alpine.magic("setSrc", setSrc);

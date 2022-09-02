@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_cart' );
 
 		<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-		<ul class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4 cart woocommerce-cart-form__contents">
+		<ul class="list-none m-0 p-0 mt-2 grid grid-cols-1 md:grid-cols-2 gap-4 cart woocommerce-cart-form__contents">
 			<?php do_action('woocommerce_before_cart_contents'); ?>
 
 			<?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
@@ -35,10 +35,10 @@ do_action( 'woocommerce_before_cart' );
 				?>
 
 				
-				<li x-data="cartItem" x-bind:style="{'--width': width + 'px'}" class="border-1 border-text-200 rounded-xl overflow-hidden cart_item">
+				<li x-data="cartItem" x-bind:style="{'--width': width + 'px'}" class="border-1 border-solid border-text-200 rounded-xl overflow-hidden cart_item">
 
 					<div class="w-full bg-text-50 px-4 py-3 text-sm">
-						<ul class="flex justify-start items-center gap-6">
+						<ul class="list-none m-0 p-0 flex justify-start items-center gap-6">
 							<li class="flex flex-col">
 								<span class="mb-1 text-xs"><?php esc_html_e('Subtotal', '[TEXT_DOMAIN]') ?></span>
 								<span class="font-semibold"><?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok. ?></span>
@@ -126,7 +126,7 @@ do_action( 'woocommerce_before_cart' );
 									echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 										'woocommerce_cart_item_remove_link',
 										sprintf(
-											'<a href="%s" class="mt-auto text-xs font-semibold text-text-900 bg-gray-50 border-gray-200 border-1 px-3 py-1 rounded-full hover:bg-red-500 hover:text-white" aria-label="%s" data-product_id="%s" data-product_sku="%s">%s</a>',
+											'<a href="%s" class="mt-auto text-xs font-semibold text-text-900 bg-gray-50 border-gray-200 border-1 border-solid px-3 py-1 rounded-full hover:bg-red-500 hover:text-white" aria-label="%s" data-product_id="%s" data-product_sku="%s">%s</a>',
 											esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
 											esc_html__( 'Remove this item', '[TEXT_DOMAIN]' ),
 											esc_attr( $product_id ),

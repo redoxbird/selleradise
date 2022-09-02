@@ -49,7 +49,7 @@ $type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
       x-bind:value="keyword"
       x-on:input="start(); handleInputChange($event)"
       x-on:keydown="handelInputKeyDown($event)"
-      class="searchField"
+      class="searchField h-full"
       x-ref="input"
       name="s"
       autocomplete="off"
@@ -59,7 +59,7 @@ $type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
     />
     <button 
       x-ref="searchClearButton" 
-      class="clear" 
+      class="clear h-full border-none inline-flex justify-center items-center bg-transparent" 
       x-show="keyword && keyword != ''" 
       x-tooltip="headerSearchBarClearButtonTooltip" 
       x-on:click.prevent="clear()">

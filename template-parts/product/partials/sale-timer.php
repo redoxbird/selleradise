@@ -32,7 +32,7 @@ if (!$product->get_date_on_sale_to() || !$product->get_date_on_sale_from() || $p
         saleFrom: '<?php echo esc_attr($product->get_date_on_sale_from()) ?>',
         saleTo: '<?php echo esc_attr($product->get_date_on_sale_to()) ?>'
     })"
-    class="flex justify-start items-center text-sm flex-wrap w-full my-4 max-w-xs border-1 border-dashed border-red-600 text-red-600 rounded-xl py-2 px-4">
+    class="flex justify-start items-center text-sm flex-wrap w-full my-4 max-w-xs border-1 border-solid border-dashed border-red-600 text-red-600 rounded-xl py-2 px-4">
 
     <span class="flex-grow flex flex-col text-center"></span>
 

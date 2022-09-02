@@ -7,7 +7,7 @@ if ($args) {
     extract($args);
 }
 
-$class = 'selleradise_postCard--default-sticky col-span-full flex justify-start flex-wrap flex-col-reverse md:flex-row rounded-2xl border-1 border-gray-200 p-3 overflow-hidden';
+$class = 'selleradise_postCard--default-sticky col-span-full flex justify-start flex-wrap flex-col-reverse md:flex-row rounded-2xl border-1 border-solid border-gray-200 p-3 overflow-hidden';
 
 
 ?>

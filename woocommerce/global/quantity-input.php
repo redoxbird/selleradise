@@ -23,11 +23,11 @@ if ( $max_value && $min_value === $max_value ) {
 
 	<div 
 		x-data="quantityInput" 
-		class="quantity overflow-hidden rounded-full h-12 w-auto border-gray-200 border-1 flex justify-center items-center"
+		class="quantity overflow-hidden rounded-full h-12 w-auto border-gray-200 border-1 border-solid flex justify-center items-center"
 		>
 		<?php do_action( 'woocommerce_before_quantity_input_field' ); ?>
 
-		<button x-on:click.prevent="decrease($event)" x-bind:disabled="!canDecrease" class="w-12 h-12 p-4 flex justify-center items-center disabled:opacity-50" aria-label="<?php esc_attr_e('Increase Product Quantity', '[TEXT_DOMAIN]');?>">
+		<button x-on:click.prevent="decrease($event)" x-bind:disabled="!canDecrease" class="w-12 h-12 p-4 flex justify-center items-center bg-transparent border-none disabled:opacity-50" aria-label="<?php esc_attr_e('Increase Product Quantity', '[TEXT_DOMAIN]');?>">
 			<?php echo selleradise_svg('tabler-icons/minus'); ?>
 		</button>
 
@@ -51,7 +51,7 @@ if ( $max_value && $min_value === $max_value ) {
 			inputmode="<?php echo esc_attr( $inputmode ); ?>" />
 		<?php do_action( 'woocommerce_after_quantity_input_field' ); ?>
 
-		<button x-on:click.prevent="increase($event)" x-bind:disabled="!canIncrease"  class="w-12 h-12 p-4 flex justify-center items-center disabled:opacity-50" aria-label="<?php esc_attr_e('Decrease Product Quantity', '[TEXT_DOMAIN]');?>">
+		<button x-on:click.prevent="increase($event)" x-bind:disabled="!canIncrease"  class="w-12 h-12 p-4 flex justify-center items-center bg-transparent border-none disabled:opacity-50" aria-label="<?php esc_attr_e('Decrease Product Quantity', '[TEXT_DOMAIN]');?>">
 			<?php echo selleradise_svg('tabler-icons/plus'); ?>
 		</button>
 	</div>

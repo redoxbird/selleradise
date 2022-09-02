@@ -5,7 +5,7 @@ $next_link = get_next_post_link('%link');
 
 ?>
 
-<ul class="flex justify-between items-center flex-wrap lg:flex-nowrap gap-4 bg-background-900 my-4 w-full">
+<ul class="list-none m-0 p-0 flex justify-between items-center flex-wrap lg:flex-nowrap gap-4 bg-background-900 my-4 w-full">
     <?php if($prev_link): ?>
         <li class="w-full lg:w-1/2 lg:flex-grow">
             <p class="flex justify-start items-center font-sm opacity-75 mb-1">
@@ -14,7 +14,7 @@ $next_link = get_next_post_link('%link');
                 </span> 
                 <?php esc_html_e( 'Previous', '[TEXT_DOMAIN]' ); ?>
             </p>
-            <span class="text-underline font-semibold">
+            <span class="text-underline font-semibold children:text-text-900">
                 <?php echo previous_post_link('%link'); ?>
             </span>
         </li>
@@ -28,7 +28,7 @@ $next_link = get_next_post_link('%link');
                     <?php echo selleradise_svg('tabler-icons/chevron-right'); ?>
                 </span>
             </p>
-            <span class="text-underline font-semibold">
+            <span class="text-underline font-semibold children:text-text-900">
                 <?php next_post_link('%link') ?>            
             </span>
         </li>

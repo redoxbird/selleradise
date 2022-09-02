@@ -35,7 +35,7 @@ if (!$gallery_image_ids) {
             </div>
         <?php endforeach; ?>
     </div>
-    <div class="flex justify-center items-center absolute bottom-2 left-1/2 -translate-x-1/2 bg-white border-1 border-gray-300 rounded-full text-gray-600">
+    <div class="flex justify-center items-center absolute bottom-2 left-1/2 -translate-x-1/2 bg-white border-1 border-solid border-gray-300 rounded-full text-gray-600">
         <button x-embla:prev class="selleradise_slider__nav--previous"><?php echo selleradise_svg('tabler-icons/chevron-left') ?></button>
         <button x-embla:next class="selleradise_slider__nav--next"><?php echo selleradise_svg('tabler-icons/chevron-right') ?></button>
     </div>
