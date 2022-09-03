@@ -9,7 +9,7 @@ if ($args) {
 }
 
 $header_type = get_theme_mod('header_type', 'default');
-$type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
+$ajax_type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
 
 ?>
 
@@ -17,7 +17,7 @@ $type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
   action="<?php echo esc_url(apply_filters('woocommerce_return_to_shop_redirect', wc_get_page_permalink('shop'))); ?>"
   method="get"
   x-data="searchBar({
-    type: '<?php echo esc_attr(isset($type) && $type ? $type : 'native') ?>',
+    type: '<?php echo esc_attr(isset($ajax_type) && $ajax_type ? $ajax_type : 'native') ?>',
     headerType: '<?php echo esc_attr($header_type); ?>'
   })"
   x-on:start-search.window="start()"

@@ -8,7 +8,7 @@ if ($args) {
   extract($args);
 }
 
-$menu = selleradise_get_menu_tree("mobile");
+$selleradise_menu = selleradise_get_menu_tree("mobile");
 $categories = selleradise_get_product_categories_tree();
 
 ?>
@@ -43,8 +43,8 @@ $categories = selleradise_get_product_categories_tree();
       x-transition:leave-start="opacity-100 translate-y-0"
       x-transition:leave-end="opacity-0 -translate-y-16">
       <?php
-      if ($menu && !empty($menu)) :
-        get_template_part("template-parts/headers/partials/nav", "mobile", ["items" => $menu, "level" => 1, "parent" => []]);
+      if ($selleradise_menu && !empty($selleradise_menu)) :
+        get_template_part("template-parts/headers/partials/nav", "mobile", ["items" => $selleradise_menu, "level" => 1, "parent" => []]);
       endif;
       ?>
     </nav>

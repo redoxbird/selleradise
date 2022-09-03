@@ -22,9 +22,15 @@ if (!defined('ABSPATH')) {
 
 do_action('woocommerce_before_customer_login_form'); ?>
 
-<div x-data="loginForm" class="selleradise_account-forms">
+<div x-data="{active: 'login'}" class="selleradise_account-forms">
 
-	<div x-show="active === 'login'" class="selleradise_account-form selleradise_account-form--login">
+	<div
+	  x-show="active === 'login'"
+	  class="selleradise_account-form selleradise_account-form--login"
+	  x-transition:enter="transition ease-out-expo duration-500"
+	  x-transition:enter-start="opacity-0 translate-y-16"
+	  x-transition:enter-end="opacity-100 translate-y-0"
+	 >
 
 		<h2 class="selleradise_account-form__title">
 			<?php echo _e('Login', '[TEXT_DOMAIN]'); ?>
@@ -74,7 +80,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
 				<?php echo esc_html(__("Don't have an account?", '[TEXT_DOMAIN]')); ?>
 
-				<button x-on:click.prevent="setActive('register')">
+				<button x-on:click.prevent="active = 'register'">
 					<?php echo esc_html(__('Register here', '[TEXT_DOMAIN]')); ?>
 				</button>
 			</div>
@@ -84,7 +90,13 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
 	<?php if ('yes' === get_option('woocommerce_enable_myaccount_registration')) : ?>
 
-		<div x-show="active === 'register'" class="selleradise_account-form selleradise_account-form--register">
+		<div
+		  x-show="active === 'register'"
+		  class="selleradise_account-form selleradise_account-form--register"
+		  x-transition:enter="transition ease-out-expo duration-500"
+		  x-transition:enter-start="opacity-0 translate-y-16"
+		  x-transition:enter-end="opacity-100 translate-y-0"
+		 >
 			<h2 class="selleradise_account-form__title">
 				<?php echo esc_html(__('Register', '[TEXT_DOMAIN]')); ?>
 			</h2>
@@ -135,7 +147,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 			<div class="selleradise_account-form__option">
 				<?php echo esc_html(__("Already have an account?", '[TEXT_DOMAIN]')); ?>
 
-				<button x-on:click.prevent="setActive('login')">
+				<button x-on:click.prevent="active = 'login'">
 					<?php echo esc_html(__('Login here', '[TEXT_DOMAIN]')); ?>
 				</button>
 			</div>

@@ -38,6 +38,20 @@ class Footer
         ));
 
         Kirki::add_field('[TEXT_DOMAIN]', [
+            'type' => 'radio',
+            'settings' => 'footer_type',
+            'label' => __('Footer Type', '[TEXT_DOMAIN]'),
+            'description' => esc_html__('Select the type of footer.', '[TEXT_DOMAIN]'),
+            'section' => 'selleradise_footer',
+            'default' => 'default',
+            'choices' => [
+                'default' => esc_html__('Default', '[TEXT_DOMAIN]'),
+                'minimal' => esc_html__('Minimal', '[TEXT_DOMAIN]'),
+            ],
+            'transport' => 'refresh',
+        ]);
+
+        Kirki::add_field('[TEXT_DOMAIN]', [
             'type' => 'text',
             'settings' => 'copyright_notice',
             'label' => esc_html__('Copyright notice', '[TEXT_DOMAIN]'),

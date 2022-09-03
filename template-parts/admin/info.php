@@ -123,10 +123,10 @@
           <p class="font-bold text-gray-600 text-left">Heros</p>
         </td>
         <td class="px-2 py-1 text-center font-semibold">
-          1
+          2
         </td>
         <td class="px-2 py-1 text-center font-semibold">
-          4
+          5
         </td>
       </tr>
       <tr>
@@ -137,7 +137,7 @@
           1
         </td>
         <td class="px-2 py-1 text-center font-semibold">
-          5
+          6
         </td>
       </tr>
       <tr>
@@ -160,6 +160,72 @@
         </td>
        <td class="px-2 py-1 text-center font-semibold">
           5
+        </td>
+      </tr>
+      <tr>
+        <td class="px-2 py-1 text-center">
+          <p class="font-bold text-gray-600 text-left">Promo Widget</p>
+        </td>
+        <td class="px-2 py-1 text-center font-semibold">
+          1
+        </td>
+       <td class="px-2 py-1 text-center font-semibold">
+          8
+        </td>
+      </tr>
+      <tr>
+        <td class="px-2 py-1 text-center">
+          <p class="font-bold text-gray-600 text-left">Features Widget</p>
+        </td>
+        <td class="px-2 py-1 text-center font-semibold">
+          1
+        </td>
+       <td class="px-2 py-1 text-center font-semibold">
+          3
+        </td>
+      </tr>
+      <tr>
+        <td class="px-2 py-1 text-center">
+          <p class="font-bold text-gray-600 text-left">CTA Widget</p>
+        </td>
+        <td class="px-2 py-1 text-center font-semibold">
+          1
+        </td>
+       <td class="px-2 py-1 text-center font-semibold">
+          3
+        </td>
+      </tr>
+      <tr>
+        <td class="px-2 py-1 text-center">
+          <p class="font-bold text-gray-600 text-left">FAQs Widget</p>
+        </td>
+        <td class="px-2 py-1 text-center font-semibold">
+          1
+        </td>
+       <td class="px-2 py-1 text-center font-semibold">
+          3
+        </td>
+      </tr>
+      <tr>
+        <td class="px-2 py-1 text-center">
+          <p class="font-bold text-gray-600 text-left">Sale Countdown</p>
+        </td>
+        <td class="px-2 py-1 text-center font-semibold">
+          1
+        </td>
+       <td class="px-2 py-1 text-center font-semibold">
+          2
+        </td>
+      </tr>
+      <tr>
+        <td class="px-2 py-1 text-center">
+          <p class="font-bold text-gray-600 text-left">Testimonials Widget</p>
+        </td>
+        <td class="px-2 py-1 text-center font-semibold">
+          1
+        </td>
+       <td class="px-2 py-1 text-center font-semibold">
+          3
         </td>
       </tr>
       <tr>

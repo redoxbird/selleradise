@@ -35,7 +35,7 @@ do_action( 'woocommerce_before_cart' );
 				?>
 
 				
-				<li x-data="cartItem" x-bind:style="{'--width': width + 'px'}" class="border-1 border-solid border-text-200 rounded-xl overflow-hidden cart_item">
+				<li class="border-1 border-solid border-text-200 rounded-xl overflow-hidden cart_item">
 
 					<div class="w-full bg-text-50 px-4 py-3 text-sm">
 						<ul class="list-none m-0 p-0 flex justify-start items-center gap-6">
@@ -58,7 +58,7 @@ do_action( 'woocommerce_before_cart' );
 								if ( ! $product_permalink ) {
 									echo wp_kses_post( $thumbnail ); // PHPCS: XSS ok.
 								} else {
-									printf( '<a href="%s" class="selleradise-background-image rounded-2xl overflow-hidden w-20 h-20 flex-shrink-0">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
+									printf( '<a href="%s" class="selleradise-background-image rounded-xl overflow-hidden w-20 h-20 flex-shrink-0">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
 								}
 							?>
 

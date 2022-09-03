@@ -101,7 +101,7 @@
 
     &Name {
       @include font-size(p);
-      font-weight: font("primary_bolder", "font-weight");
+      font-weight: 600;
       margin: 0 0 0.25rem 0;
 
       a {
@@ -129,6 +129,7 @@
 
       button {
         @extend .buttonIcon--secondary;
+        border: none;
         background-color: transparent;
         padding: 0.5rem;
 

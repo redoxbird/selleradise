@@ -46,8 +46,8 @@ if ($args) {
                       ? 'selleradise_MiniCart__decreaseQuantity'
                       : 'selleradise_MiniCart__removeItem'
                   " x-on:click.prevent="$store.miniCart.decreaseQuantity(index)">
-                  <span x-show="item.quantity > 1"><?php echo selleradise_svg('tabler-icons/minus') ?></span>
-                  <span x-show="item.quantity <= 1"><?php echo selleradise_svg('tabler-icons/trash') ?></span>
+                  <span class="flex justify-center items-center w-5" x-show="item.quantity > 1"><?php echo selleradise_svg('tabler-icons/minus') ?></span>
+                  <span class="flex justify-center items-center w-5" x-show="item.quantity <= 1"><?php echo selleradise_svg('tabler-icons/trash') ?></span>
                 </button>
 
                 <span class="selleradise_MiniCart__itemQuantityCount" x-text="item.quantity"></span>

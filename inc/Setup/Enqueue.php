@@ -41,10 +41,6 @@ class Enqueue
 
         wp_enqueue_style('[TEXT_DOMAIN]', selleradise_assets('css/style.css'), array(), $this->get_version(), 'all');
 
-        // if (class_exists('Selleradise_Widgets\\Init')) {
-        //     wp_enqueue_style('selleradise-widgets', selleradise_assets('css/elementor-widgets.css'), array(), $this->get_version(), 'all');
-        // }
-
         // Extra
         if (is_singular() && comments_open() && get_option('thread_comments')) {
             wp_enqueue_script('comment-reply');

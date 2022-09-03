@@ -41,31 +41,31 @@ class Header
 
         // <REMOVE_IN_LITE>
         
-        Kirki::add_field('selleradise', [
+        Kirki::add_field('[TEXT_DOMAIN]', [
             'type' => 'radio',
             'settings' => 'header_type',
-            'label' => __('Header Type', 'selleradise'),
-            'description' => esc_html__('Select a type of header.', 'selleradise'),
+            'label' => __('Header Type', '[TEXT_DOMAIN]'),
+            'description' => esc_html__('Select a type of header.', '[TEXT_DOMAIN]'),
             'section' => 'selleradise_header',
             'default' => 'default',
             'choices' => [
-                'default' => esc_html__('Default', 'selleradise'),
-                'common' => esc_html__('Common', 'selleradise'),
-                'minimal' => esc_html__('Minimal', 'selleradise'),
-                'simple' => esc_html__('Simple', 'selleradise'),
-                'centered' => esc_html__('Centered', 'selleradise'),
-                'robust' => esc_html__('Robust', 'selleradise'),
-                'robust-alt' => esc_html__('Robust Alt', 'selleradise'),
-                'robust-centered' => esc_html__('Robust Centered', 'selleradise'),
-                'custom' => esc_html__('Custom', 'selleradise'),
+                'default' => esc_html__('Default', '[TEXT_DOMAIN]'),
+                'common' => esc_html__('Common', '[TEXT_DOMAIN]'),
+                'minimal' => esc_html__('Minimal', '[TEXT_DOMAIN]'),
+                'simple' => esc_html__('Simple', '[TEXT_DOMAIN]'),
+                'centered' => esc_html__('Centered', '[TEXT_DOMAIN]'),
+                'robust' => esc_html__('Robust', '[TEXT_DOMAIN]'),
+                'robust-alt' => esc_html__('Robust Alt', '[TEXT_DOMAIN]'),
+                'robust-centered' => esc_html__('Robust Centered', '[TEXT_DOMAIN]'),
+                'custom' => esc_html__('Custom', '[TEXT_DOMAIN]'),
             ],
             'transport' => 'refresh',
         ]);
 
-        Kirki::add_field('selleradise', [
+        Kirki::add_field('[TEXT_DOMAIN]', [
             'type' => 'code',
             'settings' => 'header_custom_code',
-            'label' => esc_html__('Custom header html', 'selleradise'),
+            'label' => esc_html__('Custom header html', '[TEXT_DOMAIN]'),
             'section' => 'selleradise_header',
             'active_callback' => [
                 [
@@ -79,10 +79,10 @@ class Header
             ],
         ]);
 
-        Kirki::add_field('selleradise', [
+        Kirki::add_field('[TEXT_DOMAIN]', [
             'type' => 'dimension',
             'settings' => 'header_custom_height',
-            'label' => esc_html__('Custom header height', 'selleradise'),
+            'label' => esc_html__('Custom header height', '[TEXT_DOMAIN]'),
             'section' => 'selleradise_header',
             'default' => '6rem',
             'active_callback' => [

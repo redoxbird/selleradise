@@ -9,11 +9,11 @@
     align-self: stretch;
 
     @include device(desktop) {
-      &[data-selleradise-sidebar-type="sidebar"] {
+      [data-selleradise-sidebar-type="sidebar"] & {
         grid-column: -2 / -1;
       }
 
-      &[data-selleradise-sidebar-type="sidebar-left"] {
+      [data-selleradise-sidebar-type="sidebar-left"] & {
         padding: 2.5rem 2.5rem 1rem 0;
         grid-column: 1 / 2;
       }

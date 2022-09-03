@@ -1,18 +1,24 @@
 === Selleradise ===
 Contributors: zarhasan
-Tags:  e-commerce, left-sidebar, right-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-width-template, theme-options, translation-ready
+Tags: e-commerce, left-sidebar, right-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-width-template, theme-options, translation-ready
 Requires at least: 5.5
 Requires PHP: 7.1
-Tested up to: 5.9
+Tested up to: 6.0
 Stable tag: 2.0.0
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
 == Description ==
 
-Selleradise is a clean, responsive and accessible WooCommerce theme. It is very easy to use and requires minimal configuration to get started. Selleradise comes with all the basic features that you need in a modern online store like Mini Cart, Quick Search, Shop Filters and Lazy Loading. It can be used for all kinds of shops including Fashion, Furniture, Cosmetic and more.
+Selleradise is a fast, responsive and accessible WooCommerce theme. It is very easy to use and requires minimal configuration to get started. Selleradise comes with all the basic features that you need in a modern online store like Mini Cart, Quick Search, Shop Filters and Lazy Loading. It can be used for all kinds of shops including Fashion, Furniture, Cosmetic and more.
 
 == Changelog ==
+
+= 2.0.0 =
+* Migrated from VueJS to AlpineJS.
+* Removed up unnecessary libraries.
+* Added a tailwind interpreter called Twind.
+* Replaced Unicons Icons with Tabler Icons.
 
 = 1.2.7 =
 * Fixed quick search bar when using fast mode.
@@ -99,9 +105,9 @@ GNU General Public License for more details.
 
 = Icons =
 
-**Unicons**
-[Apache License 2.0](https://github.com/Iconscout/unicons/blob/master/LICENSE)
-[Source](https://github.com/Iconscout/unicons)
+**Tabler Icons**
+[MIT License](https://github.com/tabler/tabler-icons/blob/master/LICENSE)
+[Source](https://github.com/tabler/tabler-icons)
 
 = Images =
 

@@ -644,7 +644,7 @@ if (!function_exists('selleradise_get_breadcrumb')) {
             'browse_tag' => 'h2',
             'list_tag' => 'ul',
             'item_tag' => 'li',
-            'divider' => selleradise_svg('unicons-line/angle-right'),
+            'divider' => selleradise_svg('tabler-icons/chevron-right'),
             'show_on_front' => true,
             'network' => false,
             'show_title' => true,
@@ -653,7 +653,7 @@ if (!function_exists('selleradise_get_breadcrumb')) {
                 'browse' => esc_html__('Browse:', '[TEXT_DOMAIN]'),
                 'aria_label' => esc_attr_x('Breadcrumbs', 'breadcrumbs aria label', '[TEXT_DOMAIN]'),
                 'aria_label_home' => esc_attr_x('Home', 'breadcrumbs aria label', '[TEXT_DOMAIN]'),
-                'home' => selleradise_svg('unicons-line/estate'),
+                'home' => selleradise_svg('tabler-icons/home'),
                 'error_404' => esc_html__('404 Not Found', '[TEXT_DOMAIN]'),
                 'archives' => esc_html__('Archives', '[TEXT_DOMAIN]'),
                 // Translators: %s is the search query.
@@ -699,8 +699,7 @@ if (!function_exists('selleradise_get_product_image_ratio')) {
         if (get_option('woocommerce_thumbnail_cropping') === 'custom') {
             if (!get_option('woocommerce_thumbnail_cropping_custom_height') || !get_option('woocommerce_thumbnail_cropping_custom_width')) {
                 return 1;
-            }
-            ;
+            };
 
             return (int) get_option('woocommerce_thumbnail_cropping_custom_height') / (int) get_option('woocommerce_thumbnail_cropping_custom_width');
         }
@@ -784,6 +783,11 @@ if (!function_exists('selleradise_kses_ruleset')) {
                 'class' => true,
                 'aria-hidden' => true,
                 'aria-labelledby' => true,
+                'stroke-width' => true,
+                'stroke' => true,
+                'stroke-linecap' => true,
+                'stroke-linejoin' => true,
+                'fill' => true,
                 'role' => true,
                 'xmlns' => true,
                 'width' => true,
@@ -795,7 +799,11 @@ if (!function_exists('selleradise_kses_ruleset')) {
             'path' => array(
                 'd' => true,
                 'fill' => true,
+                'stroke' => true,
             ),
+            'polyline' => array(
+                'points' => true
+            )
         );
         return array_merge($kses_defaults, $svg_args);
     }
@@ -1005,7 +1013,7 @@ if (!function_exists('selleradise_products_classes')) {
                 ],
                 "compact" => [
                     "sm" => 2,
-                    "md" => 5,
+                    "md" => 4,
                     "lg" => 7,
                 ],
                 "list" => [
@@ -1015,7 +1023,7 @@ if (!function_exists('selleradise_products_classes')) {
                 ],
                 "rounded" => [
                     "sm" => 1,
-                    "md" => 5,
+                    "md" => 3,
                     "lg" => 5,
                 ],
             ];
@@ -1038,7 +1046,7 @@ if (!function_exists('selleradise_products_classes')) {
                 ],
                 "compact" => [
                     "sm" => 2,
-                    "md" => 5,
+                    "md" => 4,
                     "lg" => 5,
                 ],
                 "list" => [
@@ -1048,7 +1056,7 @@ if (!function_exists('selleradise_products_classes')) {
                 ],
                 "rounded" => [
                     "sm" => 1,
-                    "md" => 4,
+                    "md" => 3,
                     "lg" => 4,
                 ],
             ];
@@ -1089,7 +1097,7 @@ if (!function_exists('selleradise_posts_classes')) {
                 ],
                 "list" => [
                     "sm" => 1,
-                    "md" => 2,
+                    "md" => 1,
                     "lg" => 3,
                 ],
             ];

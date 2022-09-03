@@ -25,7 +25,7 @@
 
 </div><!-- #content -->
 
-<?php get_template_part('template-parts/footers/footer', "default"); ?>
+<?php get_template_part('template-parts/footers/footer', get_theme_mod('footer_type', 'default')); ?>
 
 
 </div><!-- #page -->

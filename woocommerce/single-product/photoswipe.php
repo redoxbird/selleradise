@@ -27,13 +27,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="pswp__counter"></div>
 				<div class="pswp__controls">
 					<button class="pswp__button pswp__button--zoom" aria-label="<?php esc_attr_e( 'Zoom in/out', '[TEXT_DOMAIN]' ); ?>">
-						<?php echo selleradise_svg('unicons-line/search-plus') ?>
+						<?php echo selleradise_svg('tabler-icons/zoom-in') ?>
 					</button>
 					<button class="pswp__button pswp__button--fs" aria-label="<?php esc_attr_e( 'Toggle fullscreen', '[TEXT_DOMAIN]' ); ?>">
-						<?php echo selleradise_svg('unicons-line/expand-arrows') ?>
+						<?php echo selleradise_svg('tabler-icons/arrows-maximize') ?>
 					</button>
 					<button class="pswp__button pswp__button--share" aria-label="<?php esc_attr_e( 'Share', '[TEXT_DOMAIN]' ); ?>">
-						<?php echo selleradise_svg('unicons-line/share') ?>
+						<?php echo selleradise_svg('tabler-icons/share') ?>
 					</button>
 					<button class="pswp__button pswp__button--close" aria-label="<?php esc_attr_e( 'Close (Esc)', '[TEXT_DOMAIN]' ); ?>">
 						<?php echo selleradise_svg('tabler-icons/x') ?>
@@ -51,10 +51,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="pswp__share-tooltip"></div>
 			</div>
 			<button class="pswp__button pswp__button--arrow--left" aria-label="<?php esc_attr_e( 'Previous (arrow left)', '[TEXT_DOMAIN]' ); ?>">
-				<?php echo selleradise_svg('unicons-line/angle-left') ?>
+				<?php echo selleradise_svg('tabler-icons/chevron-left') ?>
 			</button>
 			<button class="pswp__button pswp__button--arrow--right" aria-label="<?php esc_attr_e( 'Next (arrow right)', '[TEXT_DOMAIN]' ); ?>">
-				<?php echo selleradise_svg('unicons-line/angle-right') ?>
+				<?php echo selleradise_svg('tabler-icons/chevron-right') ?>
 			</button>
 			<div class="pswp__caption">
 				<div class="pswp__caption__center"></div>

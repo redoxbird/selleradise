@@ -33,14 +33,6 @@ function handleRoot(el, Alpine) {
       isInView(index) {
         return this.activeIndex === index;
       },
-
-      emblaPrev() {
-        this.embla?.scrollPrev();
-      },
-
-      emblaNext() {
-        this.embla?.scrollNext();
-      },
     }),
   });
 }
@@ -88,18 +80,18 @@ function handleThumbs(el, Alpine, modifiers) {
   });
 }
 
-function handleNext(el, Alpine) {
+function handlePrev(el, Alpine) {
   Alpine.bind(el, {
     "x-on:click.prevent"(e) {
-      this.$data.embla?.emblaNext();
+      this.$data.embla?.scrollPrev();
     },
   });
 }
 
-function handlePrev(el, Alpine) {
+function handleNext(el, Alpine) {
   Alpine.bind(el, {
     "x-on:click.prevent"(e) {
-      this.$data.embla?.emblaPrev();
+      this.$data.embla?.scrollNext();
     },
   });
 }

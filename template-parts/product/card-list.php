@@ -33,7 +33,7 @@ if (isset($classes) && $classes) {
 
 
 <li
-    x-data="productCard"
+    x-data
     class="<?php echo esc_attr($class); ?> flex justify-start items-stretch rounded-2xl bg-background-900 text-text-900 border-1 border-solid border-gray-200 hover:border-gray-300 p-2 overflow-hidden transition-all">
     <?php do_action('woocommerce_before_shop_loop_item'); ?>
 
@@ -43,7 +43,7 @@ if (isset($classes) && $classes) {
       <?php get_template_part('template-parts/product/partials/image', null, ["product" => $product, "classes" => $class]); ?>
     </div>
 
-    <div class="w-3/5 text-md flex flex-col items-start justify-start flex-wrap flex-grow pt-6 px-4 pb-4 relative">
+    <div class="w-3/5 text-md flex flex-col items-start justify-start flex-wrap flex-grow px-4 py-4 relative">
         <div class="flex flex-wrap justify-between items-start w-full">
             <?php do_action('woocommerce_before_shop_loop_item_title'); ?>
 
@@ -68,7 +68,7 @@ if (isset($classes) && $classes) {
         <?php endif; ?>
 
         <div class="flex justify-between items-center mt-auto pt-4 w-full">
-            <div class="selleradise_productCard__price">
+            <div class="selleradise_productCard__price font-semibold text-sm">
                 <?php echo wp_kses_post($product->get_price_html()); ?>
             </div>
             

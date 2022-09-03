@@ -180,7 +180,7 @@ class Setup
             [$this, 'selleradise_lite_info_page']
         );
 
-        add_action('load-' . $admin_page, [$this, 'load_admin_css']);
+        add_action('load-' . $admin_page, [$this, 'load_admin_scripts']);
 
     }
 
@@ -189,7 +189,7 @@ class Setup
         get_template_part("template-parts/admin/info");
     }
 
-    public function load_admin_css()
+    public function load_admin_scripts()
     {
         add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_css']);
     }

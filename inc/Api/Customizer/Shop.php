@@ -70,20 +70,5 @@ class Shop
         
         // </REMOVE_IN_LITE>
 
-        Kirki::add_field('[TEXT_DOMAIN]', [
-            'type' => 'radio',
-            'settings' => 'shop_page_category_card_type',
-            'label' => __('Category Card Type', '[TEXT_DOMAIN]'),
-            'description' => esc_html__('Which type of card design should be used for the shop categories?', '[TEXT_DOMAIN]'),
-            'section' => 'woocommerce_product_catalog',
-            'default' => 'default',
-            'priority' => 50,
-            'choices' => [
-                'default' => esc_html__('Default', '[TEXT_DOMAIN]'),
-                'icon' => esc_html__('Icon', '[TEXT_DOMAIN]'),
-            ],
-            'transport' => 'refresh',
-        ]);
-
     }
 }

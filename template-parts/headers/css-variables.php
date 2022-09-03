@@ -73,4 +73,3 @@ $color_variables = [
     }
 
 </style>
-

@@ -33,8 +33,7 @@ if (isset($classes) && $classes) {
 
 
 <li
-    x-data="productCard"
-    x-bind:style="{'--width': width + 'px'}"
+    x-data
     class="<?php echo esc_attr($class); ?> flex flex-col justify-start items-start rounded-2xl bg-background-900 text-text-900 border-1 border-solid border-gray-200 hover:border-gray-300 p-2 overflow-hidden transition-all">
     <?php do_action('woocommerce_before_shop_loop_item'); ?>
 
@@ -59,7 +58,7 @@ if (isset($classes) && $classes) {
         <?php get_template_part('template-parts/product/partials/sale-timer', null, ["product" => $product]); ?>
 
         <div class="flex justify-between items-center mt-auto pt-4 w-full">
-            <div class="selleradise_productCard__price">
+            <div class="selleradise_productCard__price font-semibold">
                 <?php echo wp_kses_post($product->get_price_html()); ?>
             </div>
             

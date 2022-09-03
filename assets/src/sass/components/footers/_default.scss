@@ -33,7 +33,7 @@
     @extend .flex-start;
     align-items: stretch;
     flex-direction: column;
-    height: 10rem;
+    max-height: 15rem;
 
     > li {
       > a {

@@ -1,0 +1,101 @@
+.selleradise_footer--minimal {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    @include focus-outline;
+    color: inherit;
+  }
+
+  .selleradiseHeader__logo-outer {
+    margin-right: 0;
+    justify-content: flex-start;
+  }
+
+  nav {
+    width: 40%;
+    flex-grow: 1;
+    padding: 0 5rem;
+  }
+
+  .selleradise_menu--footer__list {
+    @extend .inline-list;
+    @extend .flex-center;
+
+    > li {
+      a {
+        @include font-size(small);
+        font-weight: font("primary_boldest", "font-weight");
+        color: rgba(color(text-rgb), 0.8);
+        padding: 1em;
+
+        &:hover {
+          color: color(main);
+          text-decoration: underline;
+        }
+      }
+
+      &.menu-item-has-children {
+        position: relative;
+
+        @include device(desktop) {
+          .sub-menu {
+            position: absolute;
+            padding: 0.5rem;
+            left: 0;
+            bottom: 100%;
+            border: 0.1em solid rgba(color(text-rgb), 0.1);
+            border-radius: var(--border-radius-half);
+            background-color: color(background);
+            min-width: 10rem;
+            white-space: nowrap;
+            height: auto;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(1rem);
+            transform-origin: bottom;
+            transition: all $time easing(out-expo);
+
+            a {
+              @include font-size(small);
+            }
+          }
+
+          &:hover {
+            .sub-menu {
+              visibility: visible;
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+
+      @include device(mobileAndTablet) {
+        align-self: stretch;
+
+        &.menu-item-has-children {
+          .sub-menu {
+            a {
+              @include font-size(small);
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include device(mobileAndTablet) {
+    justify-content: center;
+    text-align: center;
+
+    nav {
+      width: 100%;
+      padding: 2.5rem 0;
+    }
+  }
+}

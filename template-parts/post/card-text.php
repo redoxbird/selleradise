@@ -17,9 +17,9 @@ if(isset($classes) && $classes) {
 
 <div x-data id="post-<?php the_ID(); ?>" <?php post_class($class); ?> >
     
-  <div class="text-xl w-full">
+  <h2 class="text-md m-0 w-full">
     <?php get_template_part('template-parts/post/partials/title', null);?>
-  </div> 
+  </h2> 
   <?php get_template_part('template-parts/post/partials/categories', null);?>
   <div class="text-sm w-full mt-4">
     <?php echo get_the_excerpt(); ?>

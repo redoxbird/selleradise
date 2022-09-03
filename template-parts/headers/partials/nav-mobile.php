@@ -14,7 +14,7 @@ if (isset($args)) {
   <?php if ($parent) : ?> 
     x-show="activeChild == true" 
     x-collapse 
-    class="m-0 p-0 pl-3 w-full text-sm font-medium border-0 border-l-1 border-solid border-text-100" 
+    class="m-0 p-0 pl-2 ml-4 w-full text-sm font-medium border-0 border-l-1 border-solid border-text-100" 
   <?php else : ?> 
     class="m-0 p-0 pb-12 w-full text-md min-h-[30rem]" 
   <?php endif; ?>
