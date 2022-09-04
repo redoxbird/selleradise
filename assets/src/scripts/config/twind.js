@@ -14,6 +14,7 @@ export default {
     extend: {
       borderWidth: {
         1: "0.1rem",
+        2: "0.15rem",
       },
       colors: {
         ...colors,
@@ -67,6 +68,7 @@ export default {
         112: "28rem",
         120: "30rem",
         128: "32rem",
+        140: "35rem",
         144: "36rem",
         160: "40rem",
         168: "42rem",

@@ -28,6 +28,7 @@ import quantityInput from "./data/quantity-input";
 import saleTimer from "./data/sale-timer";
 import infiniteScroll from "./data/infinite-scroll";
 import faqs from "./data/faqs";
+import productPage from "./data/product-page";
 
 import { selleradise } from "./selleradise";
 import { default as TwindConfig } from "./config/twind";
@@ -68,6 +69,7 @@ window.Alpine.data("quantityInput", quantityInput);
 window.Alpine.data("saleTimer", saleTimer);
 window.Alpine.data("infiniteScroll", infiniteScroll);
 window.Alpine.data("faqs", faqs);
+window.Alpine.data("productPage", productPage);
 
 // Initiate twind
 window.TwindConfig = TwindConfig;

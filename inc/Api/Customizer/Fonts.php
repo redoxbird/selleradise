@@ -60,13 +60,6 @@ class Fonts
         ]);
 
         Kirki::add_field('[TEXT_DOMAIN]', [
-            'type' => 'custom',
-            'settings' => 'title_additional_fonts',
-            'section' => 'selleradise_fonts',
-            'default' => selleradise_kirki_heading('Additional'),
-        ]);
-
-        Kirki::add_field('[TEXT_DOMAIN]', [
             'type' => 'typography',
             'settings' => 'font_primary_bolder',
             'label' => esc_html__('Primary Font (Bolder)', '[TEXT_DOMAIN]'),
