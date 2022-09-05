@@ -8,6 +8,8 @@ export default {
     mobileMenuService.onTransition((state) => {
       this.state = state.value;
     });
+
+    this.enableTriggers();
   },
 
   isOpen() {
@@ -21,5 +23,31 @@ export default {
 
   close() {
     mobileMenuService.send("CLOSE");
+  },
+
+  enableTriggers() {
+    const links = document.querySelectorAll(
+      'a[href^="#selleradise_sidebar__"]'
+    );
+
+    if (links.length < 1) {
+      return;
+    }
+
+    for (const index in links) {
+      if (links.hasOwnProperty.call(links, index)) {
+        const link = links[index];
+        const type = link.href.split("__")[1];
+
+        if (!type) {
+          continue;
+        }
+
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          this.open(type);
+        });
+      }
+    }
   },
 };
