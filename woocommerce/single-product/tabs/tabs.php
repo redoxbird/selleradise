@@ -52,7 +52,7 @@ if ( ! empty( $product_tabs ) ) : ?>
 
 	<div class="selleradise_single_product__panels">
 		<?php foreach ( $product_tabs as $key => $product_tab ) : ?>
-			<div class="selleradise_single_product__panel woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr( $key ); ?> panel entry-content wc-tab" id="tab-<?php echo esc_attr( $key ); ?>">
+			<div class="selleradise_single_product__panel woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr( $key ); ?> panel entry-content wc-tab <?php echo esc_attr($key === 'description' ? 'selleradise_prose' : null); ?>" id="tab-<?php echo esc_attr( $key ); ?>">
 				<?php
 				if ( isset( $product_tab['callback'] ) ) {
 					call_user_func( $product_tab['callback'], $key, $product_tab );
