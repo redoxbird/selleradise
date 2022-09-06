@@ -118,7 +118,7 @@ export default (props = {}) => ({
     ].toString()}`;
 
     url["fibosearch"] = `${
-      selleradiseData.wcAjaxURl
+      selleradiseData.wcAjaxURL
     }=dgwt_wcas_ajax_search&${params[this.type].toString()}`;
 
     const response = await fetch(url[this.type], {

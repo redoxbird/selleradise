@@ -8,6 +8,10 @@ if ($args) {
   extract($args);
 }
 
+if(!class_exists('WooCommerce')) {
+  return;
+}
+
 $header_type = get_theme_mod('header_type', 'default');
 $ajax_type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
 

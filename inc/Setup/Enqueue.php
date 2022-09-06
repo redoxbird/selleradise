@@ -54,7 +54,7 @@ class Enqueue
             'homeURL' => esc_url(home_url()),
             'assetsURL' => esc_url(selleradise_assets('/')),
             'ajaxURL' => esc_url(admin_url('admin-ajax.php')),
-            'wcAjaxURl' => WC_AJAX::get_endpoint(),
+            'wcAjaxURL' =>  class_exists('WC_AJAX') ? WC_AJAX::get_endpoint() : '',
             "isWooCommerce" => class_exists('WooCommerce') ? true : false,
             "settings" => [],
             "theme" => [

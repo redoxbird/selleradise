@@ -4,7 +4,7 @@ Tags: e-commerce, left-sidebar, right-sidebar, custom-colors, custom-logo, custo
 Requires at least: 5.5
 Requires PHP: 7.1
 Tested up to: 6.0
-Stable tag: 2.0.0
+Stable tag: [THEME_VERSION]
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -13,6 +13,9 @@ License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 Selleradise is a fast, responsive and accessible WooCommerce theme. It is very easy to use and requires minimal configuration to get started. Selleradise comes with all the basic features that you need in a modern online store like Mini Cart, Quick Search, Shop Filters and Lazy Loading. It can be used for all kinds of shops including Fashion, Furniture, Cosmetic and more.
 
 == Changelog ==
+
+= 2.0.1 =
+* Fixed a fetal error.
 
 = 2.0.0 =
 * Migrated from VueJS to AlpineJS.
