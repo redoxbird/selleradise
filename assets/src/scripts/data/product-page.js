@@ -31,7 +31,7 @@ export default () => ({
   },
 
   watchVariationChange() {
-    if (!jQuery) {
+    if (typeof jQuery !== "function") {
       return;
     }
 

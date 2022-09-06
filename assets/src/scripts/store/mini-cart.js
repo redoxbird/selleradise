@@ -21,7 +21,7 @@ export default {
   },
 
   jQueryEvents() {
-    if (!jQuery) {
+    if (typeof jQuery !== "function") {
       return;
     }
 
