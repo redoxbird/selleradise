@@ -30,9 +30,11 @@
 	<?php get_template_part('template-parts/headers/skip-link'); ?>
 	
 	<?php get_template_part('template-parts/headers/header', get_theme_mod('header_type', 'default'));?>
-	<?php if (class_exists('WooCommerce')) : ?>
+
+	<?php if (class_exists('WooCommerce')): ?>
 		<?php get_template_part('template-parts/headers/partials/mini-cart'); ?>
 	<?php endif; ?>
+	
 	<?php get_template_part('template-parts/headers/partials/menu', 'mobile'); ?>
 	
 	<div id="content" class="site-content">
