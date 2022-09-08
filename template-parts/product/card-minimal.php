@@ -40,7 +40,7 @@ if (isset($classes) && $classes) {
     <div class="text-md flex px-4 py-5 flex-grow relative justify-between items-center w-full">
       <?php do_action('woocommerce_before_shop_loop_item_title');?>
 
-      <h3 class="text-sm m-0 flex-grow w-3/5 leading-normal">
+      <h3 class="text-sm m-0 flex-grow w-1/2 leading-normal">
           <a class="flex-grow text-text-900 text-inherit hover:text-main-900 hover:underline"  href="<?php echo esc_url($product->get_permalink()); ?>">
               <?php echo esc_attr( $product->get_name() ) ?>
           </a>
