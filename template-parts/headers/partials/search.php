@@ -46,7 +46,7 @@ $ajax_type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
     <div x-show="isModal() && show()" x-transport="body" class="overlay z-1000" x-on:click="close()" x-transition.opacity></div>
   </template>
 
-  <label class="flex">
+  <label class="flex justify-start items-center">
     <span class="sr-only"><?php esc_html_e("Search for products here...", '[TEXT_DOMAIN]'); ?></span>
     <input
       type="text"
