@@ -159,6 +159,10 @@ export default {
     return this.items.length > 0;
   },
 
+  isOpen() {
+    return this.state !== "hidden";
+  },
+
   open() {
     cartService.send("OPEN");
   },

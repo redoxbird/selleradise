@@ -85,7 +85,6 @@
 
     &Image {
       @extend .selleradise-background-image;
-      @extend .focus-outline;
       width: 7rem;
       height: 7rem;
       border-radius: var(--border-radius-half);
@@ -105,7 +104,6 @@
       margin: 0 0 0.25rem 0;
 
       a {
-        @extend .focus-outline;
         color: color(text);
       }
     }

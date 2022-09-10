@@ -43,7 +43,7 @@ if (isset($classes) && $classes) {
 
   <?php do_action('woocommerce_after_shop_loop_item_title');?>
   
-  <a x-init="$el.style.setProperty('--width', $el.offsetWidth + 'px')" href="<?php echo esc_url($product->get_permalink()); ?>" class="w-60 h-60 md:w-44 md:h-44 rounded-full flex justify-center items-center overflow-hidden mx-auto my-4">
+  <a x-init="$el.style.setProperty('--width', $el.offsetWidth + 'px')" href="<?php echo esc_url($product->get_permalink()); ?>" class="w-60 h-60 md:w-44 md:h-44 rounded-full flex justify-center items-center overflow-hidden mx-auto mt-6 mb-4">
     <?php get_template_part('template-parts/product/partials/image', "single", ["product" => $product, "image" => $product->get_image_id()]);?>
   </a>
 

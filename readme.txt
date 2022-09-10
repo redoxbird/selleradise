@@ -14,6 +14,9 @@ Selleradise is a fast, responsive and accessible WooCommerce theme. It is very e
 
 == Changelog ==
 
+= 2.0.4 =
+* Fixed Mini Cart accessibility issue.
+
 = 2.0.1 =
 * Fixed a fetal error.
 

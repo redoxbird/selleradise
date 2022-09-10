@@ -14,7 +14,12 @@ if ($args) {
 
 ?>
 
-<div x-cloak x-data class="selleradise_MiniCart">
+<div
+  class="selleradise_MiniCart"
+  x-cloak
+  x-data
+  x-trap="$store.miniCart.isOpen()"
+  x-on:keydown.esc.window="$store.miniCart.close()">
   <div x-cloak class="selleradise_MiniCart__inner transition ease-out duration-300" x-show="
       selleradiseData.isWooCommerce &&
       $store.miniCart.state != 'hidden'
