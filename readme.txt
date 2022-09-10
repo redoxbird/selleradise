@@ -125,13 +125,6 @@ CC0 License
 
 **Screenshot**
 CC0 License
+[PxHere: 1390118](https://pxhere.com/en/photo/1390118)
 [PxHere: 1258913](https://pxhere.com/en/photo/1258913)
-[PxHere: 812325](https://pxhere.com/en/photo/812325)
-[PxHere: 1418384](https://pxhere.com/en/photo/1418384)
-[PxHere: 1615420](https://pxhere.com/en/photo/1615420)
-[PxHere: 953937](https://pxhere.com/en/photo/953937)
-[PxHere: 527791](https://pxhere.com/en/photo/527791)
-[PxHere: 1105884](https://pxhere.com/en/photo/1105884)
-[PxHere: 1615420](https://pxhere.com/en/photo/1615420)
-[PxHere: 527793](https://pxhere.com/en/photo/527793)
-[PxHere: 1112034](https://pxhere.com/en/photo/1112034)
+[PxHere: 1172566](https://pxhere.com/en/photo/1172566)
