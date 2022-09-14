@@ -213,12 +213,6 @@ class Ajax
 
     private function get_cart()
     {
-        if (!class_exists('WooCommerce')) {
-            return wp_send_json([]);
-
-            wp_die();
-        }
-
         $cart = [
             "items" => selleradise_get_cart_items_with_product(),
             "count" => function_exists("wc") ? wc()->cart->get_cart_contents_count() : 0,
@@ -238,12 +232,6 @@ class Ajax
 
             wp_die();
         };
-
-        if (!class_exists('WooCommerce')) {
-            return wp_send_json([]);
-
-            wp_die();
-        }
 
         wp_send_json($this->get_cart());
 
