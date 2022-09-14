@@ -6,7 +6,7 @@
   <ul>
     <li>
       <a 
-        href="https://docs.selleradise.com/docs/getting-started/import-demo-content"
+        href="https://docs.selleradise.com/getting-started/import-demo-content"
         target="_blank"
         rel="noreferrer"
         class="text-lg font-medium">
@@ -15,7 +15,7 @@
     </li>
     <li>
       <a 
-        href="https://docs.selleradise.com/docs/getting-started/setup-homepage"
+        href="https://docs.selleradise.com/getting-started/setup-homepage"
         target="_blank"
         rel="noreferrer"
         class="text-lg font-medium">
@@ -24,7 +24,7 @@
     </li>
     <li>
       <a 
-        href="https://selleradise.com/#/support"
+        href="https://selleradise.com/support"
         target="_blank"
         rel="noreferrer"
         class="text-lg font-medium">

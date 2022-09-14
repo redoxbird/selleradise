@@ -245,6 +245,12 @@ body.woocommerce-lost-password .woocommerce {
   }
 }
 
+.woocommerce-MyAccount-content {
+  label {
+    margin: 1rem 0 0.25rem 0;
+  }
+}
+
 .woocommerce-MyAccount-content .woocommerce-Addresses {
   @extend .flex-start;
   align-items: stretch;

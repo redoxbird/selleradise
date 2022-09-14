@@ -22,6 +22,7 @@ class Ajax
         'remove_item_from_cart',
         'set_cart_item_quantity',
         'get_shop_filter_attributes',
+        'get_product_tags',
     ];
 
     public function register()
@@ -212,6 +213,11 @@ class Ajax
 
     private function get_cart()
     {
+        if (!class_exists('WooCommerce')) {
+            return wp_send_json([]);
+
+            wp_die();
+        }
 
         $cart = [
             "items" => selleradise_get_cart_items_with_product(),
@@ -232,6 +238,12 @@ class Ajax
 
             wp_die();
         };
+
+        if (!class_exists('WooCommerce')) {
+            return wp_send_json([]);
+
+            wp_die();
+        }
 
         wp_send_json($this->get_cart());
 
@@ -324,15 +336,20 @@ class Ajax
             wp_die();
         };
 
+        if (!class_exists('WooCommerce')) {
+            return wp_send_json([]);
+
+            wp_die();
+        }
+
         $attributes = wc_get_attribute_taxonomies();
         $attributes_with_values = [];
 
         foreach ($attributes as $key => $attribute) {
-
             $attribute_values = get_terms(wc_attribute_taxonomy_name($attribute->attribute_name), array(
                 'hide_empty' => false,
-                'orderby' => 'count',
-                'order' => 'DESC',
+                'orderby' => 'name',
+                'order' => 'ASC',
                 'number' => 100,
             ));
 
@@ -352,6 +369,30 @@ class Ajax
         }
 
         wp_send_json($attributes_with_values);
+
+        wp_die();
+    }
+
+    public function get_product_tags()
+    {
+        if (!isset($_REQUEST['_wpnonce']) || !wp_verify_nonce($_REQUEST['_wpnonce'], 'selleradise_ajax')) {
+
+            wp_send_json([
+                'message' => 'Invalid Request',
+            ]);
+
+            wp_die();
+        };
+
+        if (!class_exists('WooCommerce')) {
+            return wp_send_json([]);
+
+            wp_die();
+        }
+
+        $tags = selleradise_get_product_tags();
+        
+        wp_send_json($tags);
 
         wp_die();
     }

@@ -70,5 +70,22 @@ class Shop
         
         // </REMOVE_IN_LITE>
 
+        Kirki::add_field('[TEXT_DOMAIN]', [
+            'type' => 'multicheck',
+            'settings' => 'shop_filters_to_show',
+            'label' => __('Filters To Show', '[TEXT_DOMAIN]'),
+            'description' => esc_html__('Which filters should be visible in the sidebar?', '[TEXT_DOMAIN]'),
+            'section' => 'woocommerce_product_catalog',
+            'default'  => [ 'price', 'categories', 'attributes', 'tags' ],
+            'priority' => 50,
+            'choices' => [
+                'price' => esc_html__('Price', '[TEXT_DOMAIN]'),
+                'categories' => esc_html__('Categories', '[TEXT_DOMAIN]'),
+                'attributes' => esc_html__('Attributes', '[TEXT_DOMAIN]'),
+                'tags' => esc_html__('Tags', '[TEXT_DOMAIN]'),
+            ],
+            'transport' => 'refresh',
+        ]);
+
     }
 }

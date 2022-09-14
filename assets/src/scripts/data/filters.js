@@ -7,11 +7,13 @@ export default (props) => ({
   params: new URLSearchParams(props.searchParams || ""),
   type: props.type,
   data: {
-    attributes: [],
     categories: [],
+    attributes: [],
+    tags: [],
   },
   fields: {
     product_cat: [],
+    product_tag: [],
     min_price: 0,
     max_price: props.highestPrice,
     attributes: {},
@@ -26,6 +28,7 @@ export default (props) => ({
     this.setValues();
     this.initializeRangeSlider();
     this.getAttributes();
+    this.getTags();
   },
 
   async getAttributes() {
@@ -39,6 +42,19 @@ export default (props) => ({
     );
 
     this.data.attributes = await response.json();
+  },
+
+  async getTags() {
+    const params = new URLSearchParams({
+      action: "selleradise_get_product_tags",
+      _wpnonce: selleradiseData["_wpnonce"],
+    });
+
+    const response = await fetch(
+      `${selleradiseData.ajaxURL}?${params.toString()}`
+    );
+
+    this.data.tags = await response.json();
   },
 
   show() {
@@ -90,6 +106,22 @@ export default (props) => ({
     this.isChanged = true;
   },
 
+  handleTagChange(e) {
+    const value = e.target.value;
+
+    const existingIndex = this.fields.product_tag.findIndex(
+      (slug) => slug === value
+    );
+
+    if (e.target.checked && existingIndex < 0) {
+      this.fields.product_tag.push(value);
+    } else if (!e.target.checked && existingIndex >= 0) {
+      this.fields.product_tag.splice(existingIndex, 1);
+    }
+
+    this.isChanged = true;
+  },
+
   handleAttributeChange(e, attribute, value) {
     let field = this.fields.attributes[attribute.attribute_name];
 
@@ -113,6 +145,10 @@ export default (props) => ({
   },
 
   initializeRangeSlider() {
+    if (!this.$refs.priceSlider) {
+      return;
+    }
+
     this.priceFilterSlider = noUiSlider.create(this.$refs.priceSlider, {
       connect: true,
       step: 1,
@@ -158,6 +194,23 @@ export default (props) => ({
 
     if (isSelected) {
       this.fields.product_cat.push(slug);
+    }
+
+    return isSelected;
+  },
+
+  isTagChecked(slug) {
+    const product_tag = this.params.get("product_tag");
+
+    if (!product_tag) {
+      return false;
+    }
+
+    const selected = product_tag.split(",");
+    const isSelected = selected.includes(slug);
+
+    if (isSelected) {
+      this.fields.product_tag.push(slug);
     }
 
     return isSelected;
