@@ -79,7 +79,7 @@ $max_price = isset($search_params['max_price']) && $search_params['max_price'] ?
             </div>
 
             <?php if(isset($search_params['s']) && $search_params['s']): ?>
-                <input type="hidden" name="s" value="<?php echo $search_params['s'] ?>">
+                <input type="hidden" name="s" value="<?php echo esc_attr($search_params['s']) ?>">
             <?php endif; ?>
 
             <?php if(in_array('price', $filters_to_show)): ?>
