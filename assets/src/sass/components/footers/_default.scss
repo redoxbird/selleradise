@@ -33,7 +33,6 @@
     @extend .flex-start;
     align-items: stretch;
     flex-direction: column;
-    max-height: 15rem;
 
     > li {
       > a {
@@ -61,6 +60,10 @@
           }
         }
       }
+    }
+
+    @include device(desktop) {
+      max-height: 15rem;
     }
 
     @include device(mobileAndTablet) {
