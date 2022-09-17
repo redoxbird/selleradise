@@ -28,9 +28,9 @@ if (isset($classes) && $classes) {
 ?>
 
 <li
-  x-data
+  x-bind:class="{'xyz-in': inView}"
   x-init="$el.style.setProperty('--width', $el.offsetWidth + 'px')"
-  class="<?php echo esc_attr($class); ?> flex flex-col justify-start items-start rounded-2xl bg-background-900 text-text-900 border-1 border-solid border-gray-200 hover:border-gray-300 pt-2 px-2 overflow-hidden transition-all">
+  class="<?php echo esc_attr($class); ?> flex flex-col justify-start items-start rounded-2xl bg-background-900 text-text-900 border-1 border-solid border-gray-200 hover:border-gray-300 pt-2 px-2 overflow-hidden transition-all xyz-in">
 
     <?php do_action('woocommerce_before_shop_loop_item');?>
     <?php get_template_part('template-parts/product/partials/sale', 'chip', ["product" => $product, "classes" => "bg-text-900 rounded-full px-4 py-2 text-xs z-50 text-background-900 font-semibold absolute left-4 top-4"]); ?>

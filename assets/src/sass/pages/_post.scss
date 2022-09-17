@@ -16,23 +16,6 @@
     @include font-size(small);
     padding-bottom: 0;
   }
-
-  &__image {
-    @extend .selleradise-background-image;
-    border-radius: var(--border-radius-base);
-    overflow: hidden;
-    width: 100%;
-    height: 40rem;
-    margin-top: 1rem;
-
-    @include device(mobile) {
-      height: 20rem;
-    }
-
-    @include device(tablet) {
-      height: 30rem;
-    }
-  }
 }
 
 .selleradise_single_post .post {
@@ -42,16 +25,6 @@
   border-radius: var(--border-radius-base);
   overflow-x: hidden;
   flex: 1;
-
-  .entry-title {
-    margin: 2.5rem 0 0.5rem;
-    word-wrap: break-word;
-    line-height: 1.2;
-
-    @include device(mobile) {
-      @include font-size(h2);
-    }
-  }
 
   .date {
     @include font-size(small);

@@ -12,16 +12,16 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php if (has_post_thumbnail()): ?>
-		<div class="selleradise_single_post__image">
+		<div class="selleradise-background-image w-full rounded-2xl mt-4 h-80 md:h-96 lg:h-160">
 			<?php echo get_the_post_thumbnail(); ?>
 		</div>
 	<?php endif;?>
 
 	<?php
 		if ( is_single() ) :
-			the_title( '<h1 class="entry-title text-4xl">', '</h1>' );
+			the_title( '<h1 class="entry-title mt-10 text-4xl">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title text-4xl"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title mt-10 text-4xl"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 	?>
 

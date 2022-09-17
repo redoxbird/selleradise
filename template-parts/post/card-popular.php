@@ -9,7 +9,7 @@ if ($args) {
 
 ?>
 
-<div x-data id="post-<?php the_ID();?>" <?php post_class("selleradise_postCard--default relative h-auto bg-background-900 text-text-900 flex justify-start item-start flex-col flex-wrap rounded-2xl overflow-hidden transition-all");?> >
+<div x-bind:class="{'xyz-in': inView}" id="post-<?php the_ID();?>" <?php post_class("selleradise_postCard--default relative h-auto bg-background-900 text-text-900 flex justify-start item-start flex-col flex-wrap rounded-2xl overflow-hidden transition-all");?> >
     <?php get_template_part('template-parts/post/partials/image', null);?>
 
     <div

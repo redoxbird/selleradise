@@ -33,32 +33,6 @@
       }
     }
 
-    &-actions {
-      @extend .flex-between;
-      padding: 0 0 2.5rem 0;
-    }
-
-    &-action {
-      &-apply {
-        @extend .selleradise_button--primary;
-      }
-
-      &-clear {
-        @extend .flex-start;
-        @include focus-outline;
-        margin-left: auto;
-        font-size: 1rem;
-        font-weight: font("primary_boldest", "font-weight");
-        color: color(text);
-
-        svg {
-          width: 1em;
-          height: 1em;
-          margin-right: 0.5em;
-        }
-      }
-    }
-
     .categories,
     .tags,
     .attributes {
@@ -149,26 +123,6 @@
       }
     }
 
-    &-categories {
-      &-input {
-        &-move,
-        &-enter-active,
-        &-leave-active {
-          transition: all 400ms easing(out-expo);
-          transform-origin: center;
-        }
-
-        &-enter-from,
-        &-leave-to {
-          transform: scale(0.9);
-        }
-      }
-    }
-
-    .tags {
-      padding-bottom: 2.5rem;
-    }
-
     &-price {
       padding: 0 0 2rem 0;
 
@@ -252,32 +206,6 @@
       .noUi-connect {
         background-color: color(main);
       }
-    }
-
-    .button--showAll {
-      @include font-size(small);
-      @include focus-outline;
-      text-align: left;
-      display: block;
-      background-color: transparent;
-      font-weight: font("primary_boldest", "font-weight");
-      color: color(main);
-      border: none;
-      outline: none;
-      margin-top: 1rem;
-      width: 100%;
-      transition: all 400ms easing(out-expo);
-    }
-
-    &-enter-active,
-    &-leave-active {
-      transition: transform 400ms easing(out-expo), opacity 200ms ease-out;
-    }
-
-    &-enter-from,
-    &-leave-to {
-      opacity: 0;
-      transform: translate(5rem, 0);
     }
 
     &--offscreen {

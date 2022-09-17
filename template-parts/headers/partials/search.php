@@ -33,17 +33,21 @@ $ajax_type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
   x-bind:class="[isModal() ? 'selleradiseHeader__searchForm--overlay' : 'relative']"
   x-trap.noreturn="isModal() && show()"
   x-show="isModal() ? show() : true"
-  x-transition:enter="transition ease-out-expo duration-500"
-  x-transition:enter-start="opacity-0 translate-y-16"
-  x-transition:enter-end="opacity-100 translate-y-0"
-  x-transition:leave="transition ease-out-expo duration-300"
-  x-transition:leave-start="opacity-100 translate-y-0"
-  x-transition:leave-end="opacity-0 translate-y-16"
+  x-transition:enter="xyz-in"
+  x-transition:leave="xyz-out"
   x-on:keydown.esc.window="stop()"
+  xyz="fade down-5 duration-3"
   >
 
   <template x-teleport="header">
-    <div x-show="isModal() && show()" x-transport="body" class="overlay z-1000" x-on:click="close()" x-transition.opacity></div>
+    <div
+      x-show="isModal() && show()"
+      x-transport="body"
+      class="overlay z-1000"
+      x-on:click="close()"
+      x-transition:enter="xyz-in"
+      x-transition:leave="xyz-out"
+      xyz="fade duration-3"></div>
   </template>
 
   <label class="flex justify-start items-center">
@@ -88,13 +92,15 @@ $ajax_type = class_exists('DGWT_WC_Ajax_Search') ? "fibosearch" : "native";
 
   <div
     x-show="state === 'found'"
-    x-transition
+    x-cloak
     class="selleradiseHeader__searchResults mt-4 rounded-lg"
     x-ref="results"
     x-on:keydown.down.prevent="$focus.wrap().next()"
     x-on:keydown.up.prevent="$focus.wrap().previous()"
     x-on:keydown.esc="$focus.focus($refs.input)"
-    x-cloak>
+    x-transition:enter="xyz-in"
+    x-transition:leave="xyz-out"
+    xyz="fade down-1 duration-2">
     <ul class="selleradiseHeader__searchResults-inner">
       <li x-show="terms && terms.length > 0">
         <ul class="selleradiseHeader__searchResults-suggestions--categories">

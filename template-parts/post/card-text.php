@@ -15,7 +15,7 @@ if(isset($classes) && $classes) {
 
 ?>
 
-<div x-data id="post-<?php the_ID(); ?>" <?php post_class($class); ?> >
+<div x-bind:class="{'xyz-in': inView}" id="post-<?php the_ID(); ?>" <?php post_class($class); ?> >
     
   <h2 class="text-md m-0 w-full">
     <?php get_template_part('template-parts/post/partials/title', null);?>

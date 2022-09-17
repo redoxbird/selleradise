@@ -87,5 +87,15 @@ class Shop
             'transport' => 'refresh',
         ]);
 
+        Kirki::add_field('[TEXT_DOMAIN]', [
+            'type' => 'checkbox',
+            'settings' => 'shop_filters_submit_on_change',
+            'label' => __('Submit Filters Form On Change', '[TEXT_DOMAIN]'),
+            'section' => 'woocommerce_product_catalog',
+            'default' => false,
+            'priority' => 60,
+            'transport' => 'refresh',
+        ]);
+
     }
 }

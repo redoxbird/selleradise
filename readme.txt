@@ -14,6 +14,10 @@ Selleradise is a fast, responsive and accessible WooCommerce theme. It is very e
 
 == Changelog ==
 
+= 2.0.7 =
+* Add new animation library.
+* Update outdated templates.
+
 = 2.0.6 =
 * Fixed javascript error.
 

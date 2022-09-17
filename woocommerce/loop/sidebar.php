@@ -11,6 +11,7 @@ $shop_page_display = get_option('woocommerce_shop_page_display', false);
 $category_archive_display = get_option('woocommerce_category_archive_display', false);
 $location = get_theme_mod('filters_location', 'sidebar');
 $filters_to_show = get_theme_mod('shop_filters_to_show', ['price', 'categories', 'attributes', 'tags']);
+$submit_on_change = get_theme_mod('shop_filters_submit_on_change', false);
 $search_params = array();
 
 parse_str($_SERVER['QUERY_STRING'], $search_params);
@@ -46,13 +47,14 @@ $max_price = isset($search_params['max_price']) && $search_params['max_price'] ?
         min_price: <?php echo esc_attr($min_price); ?>,
         max_price: <?php echo esc_attr($max_price); ?>,
         searchParams: '<?php echo esc_attr($_SERVER["QUERY_STRING"]) ?>',
+        submitOnChange: <?php echo wp_json_encode($submit_on_change) ?>,
         type: '<?php echo esc_attr($location); ?>'
     })">
 
     <?php if($location === "offscreen"): ?>
-        <div x-show="show()" class="overlay" x-on:click="close()" x-transition.opacity></div>
+        <div x-show="show()" class="overlay" x-on:click="close()" x-transition:enter="xyz-in" x-transition:leave="xyz-out" xyz="fade duration-2"></div>
     <?php else: ?>
-        <div x-show="isSmall && show()" class="overlay" x-on:click="close()" x-transition.opacity></div>
+        <div x-show="isSmall && show()" class="overlay" x-on:click="close()" x-transition:enter="xyz-in" x-transition:leave="xyz-out" xyz="fade duration-2"></div>
     <?php endif; ?>
 
     <div 
@@ -60,23 +62,24 @@ $max_price = isset($search_params['max_price']) && $search_params['max_price'] ?
         x-on:click.outside="close()" 
         x-show="show()"  
         x-bind:class="['selleradise_shop__filters',className()]"
-        x-transition:enter="transition ease-out-expo duration-400"
-        x-transition:enter-start="opacity-0 translate-x-16"
-        x-transition:enter-end="opacity-100 translate-x-0"
-        x-transition:leave="transition ease-out-expo duration-500"
-        x-transition:leave-start="opacity-100 translate-x-0"
-        x-transition:leave-end="opacity-0 translate-x-16">
+        x-transition:enter="xyz-in"
+        x-transition:leave="xyz-out"
+        xyz="fade right-5 duration-2">
 
         <form method="get" x-ref="form" x-on:change="updateFormData();" action="<?php echo esc_url(function_exists("wc_get_page_permalink") ? wc_get_page_permalink('shop') : "") ?>">
-            <div class="selleradise_shop__filters-actions" x-show="isChanged" x-transition x-cloak>
-                <button type="submit" class="selleradise_shop__filters-action-apply">
-                    <?php esc_html_e('Apply Filters', '[TEXT_DOMAIN]') ?>
-                </button>
-                <a href="<?php echo esc_url(function_exists("wc_get_page_permalink") ? wc_get_page_permalink('shop') : "") ?>" class="selleradise_shop__filters-action-clear">
-                    <?php echo selleradise_svg('tabler-icons/x'); ?>
-                    <?php esc_html_e('Clear', '[TEXT_DOMAIN]') ?>
-                </a>
-            </div>
+            <?php if(!$submit_on_change): ?>
+                <div class="flex justify-between items-center mb-10" x-show="isChanged" x-transition x-cloak>
+                    <button type="submit" class="selleradise_button--primary">
+                        <?php esc_html_e('Apply Filters', '[TEXT_DOMAIN]') ?>
+                    </button>
+                    <a
+                      class="flex justify-start items-center ml-auto text-sm font-semibold text-text-900"
+                      href="<?php echo esc_url(function_exists("wc_get_page_permalink") ? wc_get_page_permalink('shop') : "") ?>">
+                        <span class="w-4 h-4 mr-1"><?php echo selleradise_svg('tabler-icons/x'); ?></span>
+                        <?php esc_html_e('Clear', '[TEXT_DOMAIN]') ?>
+                    </a>
+                </div>
+            <?php endif; ?>
 
             <?php if(isset($search_params['s']) && $search_params['s']): ?>
                 <input type="hidden" name="s" value="<?php echo esc_attr($search_params['s']) ?>">
@@ -148,15 +151,19 @@ $max_price = isset($search_params['max_price']) && $search_params['max_price'] ?
                 </div>
             <?php endif; ?>
 
-            <div class="selleradise_shop__filters-actions" x-show="isChanged" x-transition x-cloak>
-                <button type="submit" class="selleradise_shop__filters-action-apply">
-                    <?php esc_html_e('Apply Filters', '[TEXT_DOMAIN]') ?>
-                </button>
-                <a href="<?php echo esc_url(function_exists("wc_get_page_permalink") ? wc_get_page_permalink('shop') : "") ?>" class="selleradise_shop__filters-action-clear">
-                    <?php echo selleradise_svg('tabler-icons/x'); ?>
-                    <?php esc_html_e('Clear', '[TEXT_DOMAIN]') ?>
-                </a>
-            </div>
+            <?php if(!$submit_on_change): ?>
+                <div class="flex justify-between items-center mt-4 mb-10" x-show="isChanged" x-transition x-cloak>
+                    <button type="submit" class="selleradise_button--primary">
+                        <?php esc_html_e('Apply Filters', '[TEXT_DOMAIN]') ?>
+                    </button>
+                    <a
+                      class="flex justify-start items-center ml-auto text-sm font-semibold text-text-900"
+                      href="<?php echo esc_url(function_exists("wc_get_page_permalink") ? wc_get_page_permalink('shop') : "") ?>">
+                        <span class="w-4 h-4 mr-1"><?php echo selleradise_svg('tabler-icons/x'); ?></span>
+                        <?php esc_html_e('Clear', '[TEXT_DOMAIN]') ?>
+                    </a>
+                </div>
+            <?php endif; ?>
 
             <div>
                 <input type="hidden" name="min_price" x-show="fields.min_price" x-bind:value="fields.min_price" value="<?php echo esc_attr($min_price); ?>" />

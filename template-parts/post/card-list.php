@@ -15,7 +15,7 @@ if(isset($classes) && $classes) {
 
 ?>
 
-<div x-data id="post-<?php the_ID();?>" <?php post_class($class);?> >
+<div x-bind:class="{'xyz-in': inView}" id="post-<?php the_ID();?>" <?php post_class($class);?> >
   <?php get_template_part('template-parts/post/partials/image', null, ["type" => "list", "classes" => "w-44 !h-44 object-cover flex-shrink-0 rounded-2xl overflow-hidden"]);?>
 
    <div class="p-4">        

@@ -2,8 +2,13 @@
 
 $card_type = get_theme_mod('blog_card_type', 'default');
 ?>
-
-<main id="main" class="site-main w-full flex-grow self-stretch lg:w-2/3" role="main">
+<main
+  x-data="{inView: false}"
+  x-intersect.once="inView = true"
+  xyz="fade stagger-0.5 down-2"
+  id="main"
+  class="site-main w-full flex-grow self-stretch lg:w-2/3"
+  role="main">
 
   <?php if ( have_posts() ) : ?>
     <div class="posts grid gap-8 mt-8 items-start <?php echo esc_attr(selleradise_posts_classes($card_type, !is_active_sidebar( 'selleradise-sidebar' ))); ?>" data-selleradise-post-card-type="<?php echo esc_attr( get_theme_mod('blog_card_type', 'default') ); ?>">

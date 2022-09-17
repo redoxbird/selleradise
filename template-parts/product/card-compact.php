@@ -28,7 +28,7 @@ if (isset($classes) && $classes) {
 ?>
 
 <li
-  x-data
+  x-bind:class="{'xyz-in': inView}"
   class="<?php echo esc_attr($class); ?> flex flex-col justify-start items-start overflow-hidden">
 
     <?php do_action('woocommerce_before_shop_loop_item');?>

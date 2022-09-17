@@ -40,6 +40,7 @@ class Enqueue
         wp_localize_script('selleradise-main', 'selleradiseData', $this->get_data_for_javascript());
 
         wp_enqueue_style('[TEXT_DOMAIN]', selleradise_assets('css/style.css'), array(), $this->get_version(), 'all');
+        // wp_enqueue_style('animxyz', get_template_directory_uri() . '/assets/vendor/css/animxyz.css', array(), $this->get_version(), 'all');
 
         // Extra
         if (is_singular() && comments_open() && get_option('thread_comments')) {

@@ -15,18 +15,21 @@ $categories = selleradise_get_product_categories_tree();
 
 
 <div x-data>
-  <div x-show="$store.mobileMenu.isOpen()" class="overlay z-[1499]" x-on:click="$store.mobileMenu.close()" x-transition.opacity></div>
+  <div
+    x-show="$store.mobileMenu.isOpen()"
+    class="overlay z-[1499]"
+    x-on:click="$store.mobileMenu.close()"
+    x-transition:enter="xyz-in"
+    x-transition:leave="xyz-out"
+    xyz="fade duration-2"></div>
 
   <div 
-    class="selleradise__mobile-menu" 
+    class="selleradise__mobile-menu " 
     x-show="$store.mobileMenu.isOpen()" 
     x-trap="$store.mobileMenu.isOpen()" 
-    x-transition:enter="transition ease-out-expo duration-400"
-    x-transition:enter-start="opacity-0 translate-x-16"
-    x-transition:enter-end="opacity-100 translate-x-0"
-    x-transition:leave="transition ease-out-expo duration-500"
-    x-transition:leave-start="opacity-100 translate-x-0"
-    x-transition:leave-end="opacity-0 translate-x-16">
+    x-transition:enter="xyz-in"
+    x-transition:leave="xyz-out"
+    xyz="fade right-5 duration-2">
     <button class="selleradise__mobile-menu-button--close" x-on:click="$store.mobileMenu.close()" aria-label="Close Mobile Menu">
       <?php echo selleradise_svg('tabler-icons/x'); ?>
     </button>
@@ -36,12 +39,9 @@ $categories = selleradise_get_product_categories_tree();
       role="navigation"
       aria-label="Primary"
       x-show="$store.mobileMenu.activeSidebar === 'menu'"
-      x-transition:enter="transition ease-out-expo duration-500"
-      x-transition:enter-start="opacity-0 translate-y-16"
-      x-transition:enter-end="opacity-100 translate-y-0"
-      x-transition:leave="transition ease-out-expo duration-300"
-      x-transition:leave-start="opacity-100 translate-y-0"
-      x-transition:leave-end="opacity-0 -translate-y-16">
+      x-transition:enter="xyz-in"
+      x-transition:leave="xyz-out"
+      xyz="fade down-3 out-up-5 duration-3 out-duration-2">
       <?php
       if ($selleradise_menu && !empty($selleradise_menu)) :
         get_template_part("template-parts/headers/partials/nav", "mobile", ["items" => $selleradise_menu, "level" => 1, "parent" => []]);
@@ -53,12 +53,9 @@ $categories = selleradise_get_product_categories_tree();
       <div
         class="selleradise_sidebar__account absolute top-20 left-0 right-20 bottom-0 z-10 px-6 pt-10"
         x-show="$store.mobileMenu.activeSidebar === 'account'"
-        x-transition:enter="transition ease-out-expo duration-500"
-        x-transition:enter-start="opacity-0 translate-y-16"
-        x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-out-expo duration-300"
-        x-transition:leave-start="opacity-100 translate-y-0"
-        x-transition:leave-end="opacity-0 -translate-y-16">
+        x-transition:enter="xyz-in"
+        x-transition:leave="xyz-out"
+        xyz="fade down-3 out-up-5 duration-3 out-duration-2">
         <?php get_template_part('template-parts/headers/partials/account', 'info'); ?>
         <?php get_template_part('template-parts/headers/partials/account', 'links'); ?>
       </div>
@@ -67,12 +64,9 @@ $categories = selleradise_get_product_categories_tree();
         class="absolute top-20 left-0 right-20 bottom-0 z-10 px-10 pt-10"
         role="navigation"
         x-show="$store.mobileMenu.activeSidebar === 'categories'"
-        x-transition:enter="transition ease-out-expo duration-500"
-        x-transition:enter-start="opacity-0 translate-y-16"
-        x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-out-expo duration-300"
-        x-transition:leave-start="opacity-100 translate-y-0"
-        x-transition:leave-end="opacity-0 -translate-y-16">
+        x-transition:enter="xyz-in"
+        x-transition:leave="xyz-out"
+        xyz="fade down-3 out-up-5 duration-3 out-duration-2">
         <?php
         if ($categories && !empty($categories)) :
           get_template_part("template-parts/headers/partials/categories", null, ["items" => $categories, "level" => 1, "parent" => []]);

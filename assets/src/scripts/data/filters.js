@@ -29,6 +29,7 @@ export default (props) => ({
     this.initializeRangeSlider();
     this.getAttributes();
     this.getTags();
+    this.submitOnChange();
   },
 
   async getAttributes() {
@@ -77,6 +78,18 @@ export default (props) => ({
     if (device("mobileAndTablet") || this.type === "offscreen") {
       return "selleradise_shop__filters--offscreen";
     }
+  },
+
+  submitOnChange() {
+    if (!props.hasOwnProperty("submitOnChange") || !props.submitOnChange) {
+      return;
+    }
+
+    this.$watch("isChanged", () => {
+      if (this.isChanged) {
+        this.$refs.form.submit();
+      }
+    });
   },
 
   updateFormData() {

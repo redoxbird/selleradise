@@ -33,7 +33,7 @@ if (isset($classes) && $classes) {
 
 
 <li
-    x-data
+    x-bind:class="{'xyz-in': inView}"
     class="<?php echo esc_attr($class); ?> flex justify-start items-stretch rounded-2xl bg-background-900 text-text-900 border-1 border-solid border-gray-200 hover:border-gray-300 p-2 overflow-hidden transition-all">
     <?php do_action('woocommerce_before_shop_loop_item'); ?>
 
