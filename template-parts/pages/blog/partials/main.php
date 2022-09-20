@@ -5,7 +5,7 @@ $card_type = get_theme_mod('blog_card_type', 'default');
 <main
   x-data="{inView: false}"
   x-intersect.once="inView = true"
-  xyz="fade stagger-0.5 down-2"
+  xyz="fade stagger-1 down-2 duration-4"
   id="main"
   class="site-main w-full flex-grow self-stretch lg:w-2/3"
   role="main">

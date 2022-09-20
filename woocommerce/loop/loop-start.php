@@ -19,5 +19,5 @@ $fillwidth = $filters_location === "offscreen" || is_single();
 <ul
   x-data="{inView: false}"
   x-intersect.once="inView = true"
-  xyz="fade stagger-0.5 down-2"
+  xyz="fade stagger-1 down-2 duration-4"
   class="selleradise_shop__products-list list-none m-0 p-0 items-start grid gap-8 <?php echo esc_attr(selleradise_products_classes($card_type, $fillwidth)) ?>">

@@ -198,6 +198,7 @@
 
   .woocommerce-form__label-for-checkbox.checkbox {
     @extend .flex-start;
+    flex-wrap: nowrap;
 
     input {
       @extend .input-checkbox;
