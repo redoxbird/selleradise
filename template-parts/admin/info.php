@@ -33,6 +33,9 @@
     </li>
   </ul>
 
+  <!-- // <REMOVE_IN_FULL> -->
+
+
   <h2 class="mt-10 mb-0 text-2xl">You are currently using the LITE version of the theme.</h2>
 
   <p> Here is a quick comparison between LITE and FULL version.</p>
@@ -246,4 +249,7 @@
   </table>
 
   <p>If you like the theme please consider buying the full version to help support the project.</p>
+
+  <!-- // </REMOVE_IN_FULL> -->
+
 </div>

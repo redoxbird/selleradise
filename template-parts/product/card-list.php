@@ -1,4 +1,4 @@
-<?php
+<?php // [REMOVE_FILE_IN_LITE]
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.

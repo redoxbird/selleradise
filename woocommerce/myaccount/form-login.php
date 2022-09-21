@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 
 do_action('woocommerce_before_customer_login_form'); ?>
 
-<div x-data="{active: 'login'}" class="selleradise_account-forms">
+<div x-data="{active: 'login'}" x-init="window.location.hash === '#register' ? active = 'register' : active = 'login'" class="selleradise_account-forms">
 
 	<div
 	  x-show="active === 'login'"

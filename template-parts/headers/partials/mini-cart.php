@@ -84,7 +84,7 @@ if ($args) {
     </div>
 
     
-    <div x-show="$store.miniCart.isEmpty()" class="flex justify-center items-center flex-col text-center">
+    <div x-show="$store.miniCart.isEmpty()" class="w-full flex justify-center items-center flex-col text-center">
       <div class="flex justify-center items-center w-24 h-auto mb-5 p-2 children:w-full">
         <?php echo selleradise_svg('misc/empty-state') ?>
       </div>

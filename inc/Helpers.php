@@ -517,6 +517,7 @@ if (!function_exists('selleradise_get_icon')) {
             'dashboard' => 'tabler-icons/dashboard',
             'orders' => 'tabler-icons/truck-delivery',
             'downloads' => 'tabler-icons/cloud-download',
+            'subscriptions' => 'tabler-icons/hand-click',
             'edit-address' => 'tabler-icons/home',
             'edit-account' => 'tabler-icons/user-circle',
             'customer-logout' => 'tabler-icons/logout',
