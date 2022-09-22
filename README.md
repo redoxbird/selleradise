@@ -16,5 +16,6 @@ Selleradise is a fast, responsive and accessible WooCommerce theme. It is very e
 
 ## Demos
 
-- [Fashion](https://selleradise.redoxbird.com/)
-- [Furniture](https://selleradise.redoxbird.com/furniture)
+- [Fashion](https://demo.selleradise.com/)
+- [Furniture](https://demo.selleradise.com/furniture)
+- [Cosmetic](https://demo.selleradise.com/cosmetics)
