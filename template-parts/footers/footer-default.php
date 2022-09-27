@@ -13,7 +13,7 @@ if ($args) {
 <footer id="colophon" class="selleradise_footer--default" role="contentinfo">
 
     <div class="selleradise_footer--default__top">
-        <?php get_template_part('template-parts/headers/partials/logo'); ?>
+        <?php get_template_part('template-parts/footers/partials/logo'); ?>
 
         <?php get_template_part('template-parts/footers/partials/menu');?>
 
