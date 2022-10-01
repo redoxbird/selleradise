@@ -20,7 +20,7 @@ $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
 
   <?php if(has_custom_logo()): ?>
     <img
-      class="w-auto h-auto max-w-[6rem] md:!max-w-[11rem] max-h-[3rem]"
+      class="w-auto h-auto !max-w-[11rem] max-h-[3rem]"
       src="<?php echo has_custom_logo() ? $logo[0] : selleradise_assets('images/selleradise-logo.svg'); ?>"
       alt="<?php echo esc_attr(sprintf(__('%s Logo', '[TEXT_DOMAIN]'), get_bloginfo('name'))); ?>"
       width="<?php echo esc_attr($logo[1]); ?>"

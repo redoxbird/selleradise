@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_cart' );
 
 		<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-		<ul class="list-none m-0 p-0 mt-2 grid grid-cols-1 md:grid-cols-2 gap-4 cart woocommerce-cart-form__contents">
+		<ul class="list-none m-0 p-0 pr-1 mt-2 grid grid-cols-1 md:grid-cols-2 gap-4 cart woocommerce-cart-form__contents" xyz="fade stagger-1 down-4 duration-4">
 			<?php do_action('woocommerce_before_cart_contents'); ?>
 
 			<?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
@@ -35,7 +35,7 @@ do_action( 'woocommerce_before_cart' );
 				?>
 
 				
-				<li class="border-1 border-solid border-text-200 rounded-xl overflow-hidden cart_item">
+				<li class="border-1 border-solid border-text-200 rounded-xl overflow-hidden cart_item xyz-in">
 
 					<div class="w-full bg-text-50 px-4 py-3 text-sm">
 						<ul class="list-none m-0 p-0 flex justify-start items-center gap-6">

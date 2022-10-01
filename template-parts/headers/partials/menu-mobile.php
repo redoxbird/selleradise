@@ -28,7 +28,6 @@ $categories = selleradise_get_product_categories_tree();
     x-show="$store.mobileMenu.isOpen()" 
     x-trap="$store.mobileMenu.isOpen()" 
     x-transition:enter="xyz-in"
-    x-transition:leave="xyz-out"
     xyz="fade right-5 duration-2">
     <button class="selleradise__mobile-menu-button--close" x-on:click="$store.mobileMenu.close()" aria-label="Close Mobile Menu">
       <?php echo selleradise_svg('tabler-icons/x'); ?>
@@ -40,7 +39,6 @@ $categories = selleradise_get_product_categories_tree();
       aria-label="Primary"
       x-show="$store.mobileMenu.activeSidebar === 'menu'"
       x-transition:enter="xyz-in"
-      x-transition:leave="xyz-out"
       xyz="fade down-3 out-up-5 duration-3 out-duration-2">
       <?php
       if ($selleradise_menu && !empty($selleradise_menu)) :
@@ -54,7 +52,6 @@ $categories = selleradise_get_product_categories_tree();
         class="selleradise_sidebar__account absolute top-20 left-0 right-20 bottom-0 z-10 px-6 pt-10"
         x-show="$store.mobileMenu.activeSidebar === 'account'"
         x-transition:enter="xyz-in"
-        x-transition:leave="xyz-out"
         xyz="fade down-3 out-up-5 duration-3 out-duration-2">
         <?php get_template_part('template-parts/headers/partials/account', 'info'); ?>
         <?php get_template_part('template-parts/headers/partials/account', 'links'); ?>
@@ -65,7 +62,6 @@ $categories = selleradise_get_product_categories_tree();
         role="navigation"
         x-show="$store.mobileMenu.activeSidebar === 'categories'"
         x-transition:enter="xyz-in"
-        x-transition:leave="xyz-out"
         xyz="fade down-3 out-up-5 duration-3 out-duration-2">
         <?php
         if ($categories && !empty($categories)) :

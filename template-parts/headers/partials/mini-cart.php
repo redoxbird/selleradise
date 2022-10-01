@@ -32,9 +32,9 @@ if ($args) {
     </div>
 
     <template x-if="$store.miniCart.isNotEmpty()">
-      <ul class="selleradise_MiniCart__items">
+      <ul class="selleradise_MiniCart__items" xyz="fade stagger-1 down-4 duration-4">
         <template x-for="(item, index) in $store.miniCart.items" x-bind:key="item.key">
-          <li class="selleradise_MiniCart__item">
+          <li class="selleradise_MiniCart__item xyz-in">
             <a x-bind:href="item.product.link" class="selleradise_MiniCart__itemImage" x-html="item.product.image ? item.product.image : false"></a>
 
             <div class="selleradise_MiniCart__itemContent">

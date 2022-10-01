@@ -148,7 +148,8 @@ body.single-product .breadcrumb-trail {
     }
   }
 
-  &__price {
+  &__price,
+  .woocommerce-variation-price .price {
     @extend .flex-start;
     align-items: center;
     color: color(text);
@@ -159,6 +160,7 @@ body.single-product .breadcrumb-trail {
       font-weight: font("primary_boldest", "font-weight");
       margin: 0 0.25em 0 0;
       line-height: 1;
+      color: color(text);
 
       .woocommerce-Price-currencySymbol {
         @include font-size(p);

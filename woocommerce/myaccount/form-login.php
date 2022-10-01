@@ -27,9 +27,8 @@ do_action('woocommerce_before_customer_login_form'); ?>
 	<div
 	  x-show="active === 'login'"
 	  class="selleradise_account-form selleradise_account-form--login"
-	  x-transition:enter="transition ease-out-expo duration-500"
-	  x-transition:enter-start="opacity-0 translate-y-16"
-	  x-transition:enter-end="opacity-100 translate-y-0"
+	  x-transition:enter="xyz-in"
+		xyz="fade down-5 duration-3"
 	 >
 
 		<h2 class="selleradise_account-form__title">
@@ -93,9 +92,8 @@ do_action('woocommerce_before_customer_login_form'); ?>
 		<div
 		  x-show="active === 'register'"
 		  class="selleradise_account-form selleradise_account-form--register"
-		  x-transition:enter="transition ease-out-expo duration-500"
-		  x-transition:enter-start="opacity-0 translate-y-16"
-		  x-transition:enter-end="opacity-100 translate-y-0"
+		  x-transition:enter="xyz-in"
+			xyz="fade down-5 duration-3"
 		 >
 			<h2 class="selleradise_account-form__title">
 				<?php echo esc_html(__('Register', '[TEXT_DOMAIN]')); ?>

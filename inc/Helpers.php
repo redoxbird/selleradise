@@ -973,7 +973,7 @@ if (!function_exists('selleradise_nav_classes')) {
             };
         } else if ($tag === "li") {
             if ($level === 1) {
-                return "relative whitespace-nowrap list-none flex justify-between flex-wrap items-center w-full";
+                return "relative whitespace-nowrap list-none flex justify-between flex-wrap items-center";
             } else if ($level > 1) {
                 return "relative flex-1 whitespace-nowrap list-none flex justify-between flex-wrap items-center w-full my-2";
             };

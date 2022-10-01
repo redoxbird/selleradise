@@ -8,19 +8,12 @@ if (isset($args)) {
   extract($args);
 }
 
-
-  // $image = [];
-  // $image["id"] = (int) esc_attr(get_term_meta($term->term_id, 'thumbnail_id', true));
-  // $image["thumbnail"] = wp_get_attachment_image_src($image["id"], 'thumbnail');
-  // $image["alt"] = esc_attr(get_post_meta($image["id"], '_wp_attachment_image_alt', true));
-
-
 ?>
 
 <ul 
   <?php if ($parent) : ?> 
     x-show="activeChild == true" 
-    class="m-0 p-0 pl-3 w-full text-sm font-medium border-0 border-l-1 border-solid border-text-100" 
+    class="m-0 p-0 pl-3 w-full text-sm font-medium border-0 border-l-1 border-solid border-text-50" 
     x-collapse 
   <?php else : ?> 
     class="m-0 p-0 pb-12 w-full text-md min-h-[30rem]" 
