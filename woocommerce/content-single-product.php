@@ -21,10 +21,12 @@ do_action( 'woocommerce_before_single_product' );
 ?>
 
 <?php
+
 if ( post_password_required() ) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
+
 ?>
 
 <div x-data="productPage" id="product-<?php the_ID(); ?>" <?php wc_product_class( 'selleradise_single_product', $product ); ?>>
